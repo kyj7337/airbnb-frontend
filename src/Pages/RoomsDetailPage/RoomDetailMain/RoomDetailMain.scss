@@ -1,0 +1,87 @@
+@import "Styles/Common.scss";
+
+.main-wrapper {
+  max-width: 1080px;
+  height: auto;
+  padding: 0 24px;
+  margin: 0 auto;
+  position: relative;
+  @media #{$device-small} {
+    top: 500px;
+  }
+  .calender {
+    position: fixed;
+    top: 15%;
+    right: 15%;
+    float: right;
+    width: auto;
+    border: 1px solid #484848;
+    padding: 1px;
+  }
+
+  .room-story-wrapper {
+    max-width: 594px;
+    height: auto;
+    border-bottom: 0.1px solid #c5c3c3;
+    .subt {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.375em;
+      color: #484848;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+    .room-story {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.375em;
+      color: #484848;
+    }
+    .to-host {
+      color: #008489;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 22px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+  }
+}
+.button-wrapper {
+  .not-payment {
+    display: none;
+  }
+  .payment {
+    position: fixed;
+    display: inline-block;
+    right: 38%;
+    top: 9%;
+    width: 26px;
+    // padding: 5px 15px;
+    // border: 1px solid #484848;
+    color: #008489;
+    background-color: #ffffff;
+    border-radius: 6px;
+    z-index: 2;
+    @media #{$device-large} {
+      right: 7%;
+    }
+  }
+  .non-payment {
+    position: fixed;
+    display: inline-block;
+    right: 20%;
+    top: 50%;
+    width: 100px;
+    // padding: 5px 15px;
+    border: 1px solid #484848;
+    color: #008489;
+    background-color: #ffffff;
+    border-radius: 6px;
+    z-index: 2;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+}

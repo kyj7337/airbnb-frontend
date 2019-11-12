@@ -1,0 +1,80 @@
+.sign-up-page {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  .sign-up-container {
+    margin: auto;
+    width: 568px;
+    height: 364px;
+
+    box-shadow: 2px 2px #9f9fa0;
+    padding: 40px;
+    .close-button {
+      padding: 10px;
+      width: 12px;
+      height: 12px;
+      margin: 5px 5px 5px 0;
+      background-image: url("../../Components/SignUpDetail/x-mark.svg");
+      background-size: 100%;
+    }
+    .kakao-login {
+      width: 504px;
+      height: 48px;
+      border-radius: 5px;
+
+      background-image: url("../SignUp/kakao.png");
+      background-size: 80%;
+      background-position: 72px -9px;
+    }
+    .facebook-login {
+      margin-top: 15px;
+      width: 504px;
+      height: 48px;
+      border-radius: 5px;
+
+      background-image: url("https://i.stack.imgur.com/W9o0q.png");
+      background-size: 88%;
+      background-position: 72px -9px;
+    }
+    .or-container {
+      display: flex;
+      width: 504px;
+      height: 25px;
+      align-items: center;
+      justify-content: center;
+
+      .under-border {
+        border-bottom: solid 1px rgb(156, 156, 156);
+        line-height: 1.43;
+        height: 20px;
+        width: 45%;
+      }
+      .or {
+        margin: 15px 10px 0 10px;
+        font-size: 14px;
+        color: rgb(156, 156, 156);
+      }
+
+      .or::after {
+        border: solid 1px#484848;
+        line-height: 1.43;
+        height: 20px;
+        width: 300px;
+      }
+    }
+  }
+  .email-login {
+    margin-top: 15px;
+    width: 504px;
+    height: 48px;
+    border-radius: 5px;
+
+    background-image: url("./email.png");
+    background-size: 100%;
+  }
+  .sign-up-login-container {
+    margin-top: 20px;
+    display: flex;
+  }
+}

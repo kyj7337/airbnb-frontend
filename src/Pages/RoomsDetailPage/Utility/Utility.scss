@@ -1,0 +1,59 @@
+@import "../../../Styles/Common.scss";
+.utility-wrapper {
+  max-width: 594px;
+  height: 150px;
+  border-bottom: 0.1px solid #c5c3c3;
+  position: relative;
+  img {
+    width: 15px;
+    margin-right: 5px;
+  }
+  span {
+    font-size: 14px;
+    line-height: 1.43;
+    color: #484848;
+  }
+  .subt {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.375em;
+    color: #484848;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  .utility-column1 {
+    float: left;
+    width: 25%;
+    padding-right: 8px;
+    .utility-one {
+      margin-bottom: 16px;
+    }
+    .utility-two {
+      margin-bottom: 16px;
+    }
+  }
+  .utility-column2 {
+    float: left;
+    width: 25%;
+    padding-right: 8px;
+    .utility-three {
+      margin-bottom: 16px;
+    }
+    .utility-four {
+      margin-bottom: 16px;
+    }
+  }
+  .popup-button-wrapper {
+    color: #008489;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    position: absolute;
+    bottom: 0;
+    .popup-button:hover {
+      cursor: pointer;
+    }
+  }
+}
