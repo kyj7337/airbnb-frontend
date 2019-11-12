@@ -1,0 +1,206 @@
+.sd-page {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  .sd-container {
+    margin: auto;
+    padding: 32px;
+    width: 504px;
+    height: 727px;
+    border: solid 1px black;
+    background-color: white;
+    opacity: 1;
+    .close-button {
+      padding: 10px;
+      width: 26px;
+      height: 26px;
+      margin: 5px 5px 5px 0;
+      background-image: url("./x-mark.svg");
+      background-size: 100%;
+    }
+    .sd-sign-up-text {
+      display: flex;
+      justify-content: center;
+      color: #5c5c5c;
+      margin-top: 5px;
+    }
+  }
+  .or-container {
+    display: flex;
+    width: 504px;
+    height: 25px;
+    align-items: center;
+
+    .under-border {
+      border-bottom: solid 1px rgb(213, 212, 214);
+      height: 20px;
+      width: 39%;
+    }
+    .or {
+      margin: 18px 10px 0 10px;
+      font-size: 14px;
+      color: rgb(156, 156, 156);
+    }
+  }
+  .sd-email-box {
+    padding: 11px;
+    width: 439px;
+    height: 46px;
+    margin-top: 15px;
+    border-radius: 2px;
+    box-shadow: none;
+    border: solid 1px #ebebeb;
+    font-size: 16px;
+    font-weight: 100;
+    &:focus {
+      border: solid 1px #008489;
+    }
+  }
+  .sd-first-name-box {
+    padding: 11px;
+    width: 439px;
+    height: 46px;
+    margin-top: 15px;
+    border-radius: 2px;
+    box-shadow: none;
+    border: solid 1px #ebebeb;
+    font-size: 16px;
+    font-weight: 100;
+    &:focus {
+      border: solid 1px #008489;
+    }
+  }
+  .sd-last-name-box {
+    padding: 11px;
+    width: 439px;
+    height: 46px;
+    margin-top: 15px;
+    border-radius: 2px;
+    box-shadow: none;
+    border: solid 1px #ebebeb;
+    font-size: 16px;
+    font-weight: 100;
+    &:focus {
+      border: solid 1px #008489;
+    }
+  }
+  .sd-password-box {
+    padding: 11px;
+    width: 439px;
+    height: 46px;
+    margin-top: 15px;
+    border-radius: 2px;
+    box-shadow: none;
+    border: solid 1px #ebebeb;
+    font-size: 16px;
+    font-weight: 100;
+    &:focus {
+      border: solid 1px #008489;
+    }
+    &:focus + .warn-container {
+      display: block;
+    }
+  }
+
+  .warn-container {
+    display: none;
+    margin-top: 10px;
+    color: rgb(156, 156, 156);
+    font-size: 14px;
+    font-weight: 200;
+    .warn-protection-container {
+      color: rgb(156, 156, 156);
+      display: flex;
+    }
+
+    .x-mark {
+      display: flex;
+      width: 10px;
+      height: 10px;
+      background-image: url("./x-mark.svg");
+      background-size: 100%;
+      fill: rgb(156, 156, 156);
+    }
+    .warn-name-email-container {
+      display: flex;
+      margin-top: 10px;
+    }
+    .warn-length-container {
+      display: flex;
+      margin-top: 10px;
+    }
+    .warn-num-mark-container {
+      display: flex;
+      margin-top: 10px;
+    }
+  }
+  .birth-day {
+    margin-top: 20px;
+  }
+  .birth-day-guidance {
+    margin-top: 10px;
+    color: rgb(104, 103, 103);
+    font-size: 14px;
+    font-weight: 50;
+  }
+  .yy-mm-dd-container {
+    display: flex;
+    margin-top: 5px;
+    width: 100%;
+    height: 50px;
+
+    .month {
+      width: 178px;
+      height: 46px;
+      font-size: 16px;
+      font-weight: 100;
+      &:focus {
+        border: solid 1px #008489;
+      }
+    }
+    .day {
+      margin-left: 10px;
+      width: 140px;
+      height: 46px;
+      font-size: 16px;
+      font-weight: 100;
+    }
+    .year {
+      margin-left: 10px;
+      width: 140px;
+      height: 46px;
+      font-size: 16px;
+      font-weight: 100;
+    }
+  }
+  .sign-up-submit {
+    margin-top: 5px;
+
+    width: 440px;
+    height: 56px;
+    text-align: center;
+    border: solid 1px #ff5a5f;
+    background-color: #ff5a5f;
+    color: white;
+    border-radius: 5px;
+  }
+  .denied-container {
+    margin-top: 10px;
+    padding-bottom: 20px;
+    display: flex;
+    border-bottom: solid 1px rgb(213, 212, 214);
+    .denied-check-box {
+      width: 32px;
+    }
+    .denied-message {
+      font-size: 12px;
+    }
+  }
+  .sign-up-login-container {
+    margin-top: 20px;
+    display: flex;
+  }
+}

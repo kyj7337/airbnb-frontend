@@ -1,0 +1,65 @@
+@import "../../../Styles/Common.scss";
+.main-host {
+  position: relative;
+  margin-top: 24px;
+  max-width: 594px;
+  border-bottom: 0.1px solid #c5c3c3;
+
+  .room-name {
+    font-size: 32px;
+    font-weight: 800;
+    color: #484848;
+    line-height: 1.125em;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    width: 480px;
+    @media #{$device-large} {
+      width: 450px;
+    }
+  }
+  .room-name-sub {
+    font-size: 16px;
+    text-decoration: none;
+    color: #484848;
+    font-weight: 400;
+    line-height: 1.375em;
+  }
+  .host-pic {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 6px;
+    margin-right: 6px;
+    width: 150px;
+    height: 85px;
+    .host-pic-image {
+      border: 1px solid #ffffff;
+      border-radius: 30px;
+      width: 64px;
+      height: 64px;
+      right: 0;
+      position: absolute;
+    }
+    .host-name {
+      display: block;
+      text-align: center;
+      font-size: 14px;
+      color: #767676;
+      bottom: 0;
+      right: 10px;
+      position: absolute;
+    }
+  }
+  .host-room-count {
+    margin-top: 40px;
+    margin-bottom: 16px;
+    span {
+      display: inline-block;
+      margin-right: 24px;
+      font-size: 16px;
+      line-height: 1.375em;
+      font-weight: 400;
+      color: #484848;
+    }
+  }
+}
