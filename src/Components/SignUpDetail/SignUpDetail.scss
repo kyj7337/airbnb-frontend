@@ -43,66 +43,127 @@
       color: rgb(156, 156, 156);
     }
   }
-  .sd-email-box {
-    padding: 11px;
-    width: 439px;
-    height: 46px;
-    margin-top: 15px;
-    border-radius: 2px;
-    box-shadow: none;
-    border: solid 1px #ebebeb;
-    font-size: 16px;
-    font-weight: 100;
-    &:focus {
-      border: solid 1px #008489;
+  .sd-email-box-container {
+    position: relative;
+    .sd-email-box {
+      padding: 11px;
+      width: 439px;
+      height: 46px;
+      margin-top: 15px;
+      border-radius: 2px;
+      box-shadow: none;
+      border: solid 1px #ebebeb;
+      font-size: 16px;
+      font-weight: 100;
+      &:focus {
+        border: solid 1px #008489;
+      }
+    }
+    .sd-email-image {
+      position: absolute;
+      top: 27px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background-image: url("./email.svg");
     }
   }
-  .sd-first-name-box {
-    padding: 11px;
-    width: 439px;
-    height: 46px;
-    margin-top: 15px;
-    border-radius: 2px;
-    box-shadow: none;
-    border: solid 1px #ebebeb;
-    font-size: 16px;
-    font-weight: 100;
-    &:focus {
-      border: solid 1px #008489;
+  .sd-first-container {
+    position: relative;
+    .sd-first-name-box {
+      padding: 11px;
+      width: 439px;
+      height: 46px;
+      margin-top: 15px;
+      border-radius: 2px;
+      box-shadow: none;
+      border: solid 1px #ebebeb;
+      font-size: 16px;
+      font-weight: 100;
+      &:focus {
+        border: solid 1px #008489;
+      }
+    }
+    .first-image {
+      position: absolute;
+      top: 27px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background-image: url("./name.svg");
     }
   }
-  .sd-last-name-box {
-    padding: 11px;
-    width: 439px;
-    height: 46px;
-    margin-top: 15px;
-    border-radius: 2px;
-    box-shadow: none;
-    border: solid 1px #ebebeb;
-    font-size: 16px;
-    font-weight: 100;
-    &:focus {
-      border: solid 1px #008489;
-    }
-  }
-  .sd-password-box {
-    padding: 11px;
-    width: 439px;
-    height: 46px;
-    margin-top: 15px;
-    border-radius: 2px;
-    box-shadow: none;
-    border: solid 1px #ebebeb;
-    font-size: 16px;
-    font-weight: 100;
-    &:focus {
-      border: solid 1px #008489;
-    }
-    &:focus + .warn-container {
-      display: block;
-    }
-  }
+  .sd-last-container {
+    position: relative;
 
+    .sd-last-name-box {
+      padding: 11px;
+      width: 439px;
+      height: 46px;
+      margin-top: 15px;
+      border-radius: 2px;
+      box-shadow: none;
+      border: solid 1px #ebebeb;
+      font-size: 16px;
+      font-weight: 100;
+      &:focus {
+        border: solid 1px #008489;
+      }
+    }
+    .last-image {
+      position: absolute;
+      top: 27px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background-image: url("./name.svg");
+    }
+  }
+  .password-box-container {
+    position: relative;
+
+    .sd-password-box {
+      padding: 11px;
+      width: 439px;
+      height: 46px;
+      margin-top: 15px;
+      border-radius: 2px;
+      box-shadow: none;
+      border: solid 1px #ebebeb;
+      font-size: 16px;
+      font-weight: 100;
+      &:focus {
+        border: solid 1px #008489;
+      }
+      &:focus + .warn-container {
+        display: block;
+      }
+    }
+    .password-image {
+      position: absolute;
+      top: 27px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background-image: url("./password.svg");
+    }
+    .password-image-on {
+      position: absolute;
+      top: 27px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background-repeat: no-repeat;
+      background-image: url("./passwordOpen.svg");
+    }
+    .text-image {
+      top: 27px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background-image: url("./text.svg");
+    }
+  }
   .warn-container {
     display: none;
     margin-top: 10px;
