@@ -69,7 +69,6 @@ export class SignUpDetail extends Component {
       : this.setState({
           hideMode: true
         });
-    console.log(this.state);
   };
   faceBookLogin = () => {
     window.FB.login(

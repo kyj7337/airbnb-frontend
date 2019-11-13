@@ -19,13 +19,42 @@ export class SignUp extends Component {
   loginWithKakao = () => {
     window.Kakao.Auth.login({
       success: function(authObj) {
-        alert(JSON.stringify(authObj));
+        fetch("http://10.58.1.8:8000/users/kakao", {
+          method: "get",
+          headers: {
+            Authorization: authObj.access_token
+          }
+        })
+          .then(res => {
+            return res.json();
+          })
+          .then(res => {
+            if (res.access_token) {
+              localStorage.setItem("access_token", res.access_token);
+            } else {
+              alert("실패");
+            }
+          });
       },
       fail: function(err) {
         alert(JSON.stringify(err));
       }
     });
+    this.props.history.push("/");
   };
+  // handleKakao = () => {
+  //   console.log("성공");
+  //   if (localStorage.getItem("kakao_afadfd8d437ad846ee5a924c15cbe1eb")) {
+  //     fetch("http://10.58.1.8:8000/users/kakao", {
+  //       method: "post",
+  //       headers: {
+  //         Authorization: localStorage.getItem(
+  //           "kakao_afadfd8d437ad846ee5a924c15cbe1eb"
+  //         )
+  //       }
+  //     });
+  //   }
+  // };
   render() {
     return (
       <div className="sign-up-page">
