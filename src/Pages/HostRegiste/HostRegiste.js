@@ -9,9 +9,11 @@ export class HostRegiste extends Component {
   log = e => {
     console.log(e.target);
   };
-  //   handleData = data => {
-  //     this.setState({ address: data }, () => console.log(this.state));
-  //   };
+  handleData = data => {
+    this.setState({ address: data }, () =>
+      console.log("성공", this.state.address.postcode)
+    );
+  };
   searchAddress = e => {
     e.preventDefault();
     var mapContainer = document.getElementById("map"), // 지도를 표시할 div
@@ -29,16 +31,16 @@ export class HostRegiste extends Component {
     });
 
     new window.daum.Postcode({
-      oncomplete: function(data) {
+      oncomplete: data => {
         console.log(data);
-        //   this.handleData(data);
+        this.handleData(data);
         var addr = data.address; // 최종 주소 변수
 
         // 주소 정보를 해당 필드에 넣는다.
         document.getElementById("address-search-box").value = addr;
         // 주소로 상세 정보를 검색
 
-        geocoder.addressSearch(data.address, function(results, status) {
+        geocoder.addressSearch(data.address, (results, status) => {
           // 정상적으로 검색이 완료됐으면
           if (status === window.daum.maps.services.Status.OK) {
             var result = results[0]; //첫번째 결과의 값을 활용
