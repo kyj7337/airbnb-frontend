@@ -6,6 +6,7 @@ import SignUp from "./Pages/SignUp";
 import Login from "./Pages/Login";
 import SignUpDetail from "./Components/SignUpDetail";
 import HostRegiste from "./Pages/HostRegiste";
+import HostRegisteStep2 from "./Pages/HostRegiste/HostRegisteStep2/";
 import "./Styles/Common.scss";
 
 export class Routes extends React.Component {
@@ -19,6 +20,7 @@ export class Routes extends React.Component {
           <Route exact path="/SignUp" component={SignUp} />
           <Route exact path="/SignUpDetail" component={SignUpDetail} />
           <Route exact path="/HostRegiste" component={HostRegiste} />
+          <Route exact path="/HostRegisteStep2" component={HostRegisteStep2} />
         </Switch>
       </Router>
     );

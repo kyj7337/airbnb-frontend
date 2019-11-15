@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 import "./HostRegiste.scss";
 
 export class HostRegiste extends Component {
@@ -18,7 +19,7 @@ export class HostRegiste extends Component {
     let reader = new FileReader();
     let file = e.target.files[0];
     this.setState({ image: reader }, () =>
-      console.log(e.target.files[0], this.state)
+      console.log("로드앤드", this.state.image)
     );
 
     reader.onloadend = () => {
@@ -212,7 +213,9 @@ export class HostRegiste extends Component {
           </form>
           <div className="hr-button-container">
             <button className="hr-cancle-button">취소</button>
-            <button className="hr-next-button">다음&nbsp;&nbsp;></button>
+            <Link to="/HostRegisteStep2" className="hr-next-button">
+              다음&nbsp;&nbsp;>
+            </Link>
           </div>
         </div>
       </div>

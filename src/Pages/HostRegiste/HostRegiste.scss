@@ -198,6 +198,9 @@
         color: white;
       }
       .hr-next-button {
+        display: flex;
+        align-items: center;
+        padding: 20px;
         font-size: 20px;
         width: 100px;
         height: 40px;
