@@ -6,19 +6,14 @@
   width: 100%;
 
   .hr-step-container {
-    display: flex;
     width: 100%;
-    height: 12px;
-    margin: 0 auto;
+    height: 10px;
 
     .hr-step-1 {
       width: 50%;
       height: 100%;
       background: linear-gradient(to right, #008489, #a61d55, #ffb400);
-    }
-    .hr-step-2 {
-      width: 50%;
-      height: 100%;
+      animation: stepMove 1s;
     }
   }
   .hr-step {
@@ -67,11 +62,11 @@
       width: 200px;
       padding: 20px;
       .hr-registe-profile-image {
-        margin: 50px 19px;
+        margin: 20px 7px;
         width: 100px;
         height: 100px;
         border-radius: 100%;
-        background: linear-gradient(to right, #008489, #a61d55, #ffb400);
+        background-size: 100%;
         .hr-registe-profile-input {
           padding-left: 50px;
           margin-left: 50px;
@@ -187,6 +182,30 @@
         }
       }
     }
+    .hr-button-container {
+      display: flex;
+      justify-content: space-between;
+
+      margin: 80px auto;
+      width: 25%;
+      padding: 20px;
+      .hr-cancle-button {
+        font-size: 20px;
+        width: 80px;
+        height: 40px;
+        border-radius: 5px;
+        background-color: #008489;
+        color: white;
+      }
+      .hr-next-button {
+        font-size: 20px;
+        width: 100px;
+        height: 40px;
+        border-radius: 5px;
+        background-color: #008489;
+        color: white;
+      }
+    }
   }
 }
 
@@ -196,5 +215,14 @@
   }
   to {
     background: linear-gradient(left, rgb(166, 146, 151), rgb(0, 29, 85));
+  }
+}
+
+@keyframes stepMove {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 50%;
   }
 }

@@ -4,12 +4,62 @@ import "./HostRegiste.scss";
 export class HostRegiste extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      image: "",
+      hostName: "",
+      hostIntro: "",
+      relation: "",
+      language: ""
+    };
   }
-  log = e => {
-    console.log(e.target);
+
+  imgUpload = e => {
+    e.persist();
+    let reader = new FileReader();
+    let file = e.target.files[0];
+    this.setState({ image: reader }, () =>
+      console.log(e.target.files[0], this.state)
+    );
+
+    reader.onloadend = () => {
+      this.setState({ ...this.state, imgArr: reader.result });
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+
+    let formData = new FormData();
+    formData.append("image", file);
+
+    let headers = {
+      "content-type": "multipart/form-data"
+    };
+
+    // Axios.post("http://10.58.3.112:8000/aws/upload", formData, {
+    //   headers
+    // });
   };
-  handleData = data => {
+
+  handleData = e => {
+    if (e.target.name === "hostName") {
+      this.setState({ hostName: e.target.value });
+    } else if (e.target.name === "hostIntro") {
+      this.setState({ hostIntro: e.target.value });
+    } else if (e.target.name === "relation") {
+      this.setState({ relation: e.target.value });
+    } else if (e.target.value === "한국어") {
+      this.setState({ language: e.target.value }, () => {
+        console.log(this.state.language);
+      });
+    } else if (e.target.value === "영어") {
+      this.setState({ language: e.target.value }, () => {
+        console.log(this.state.language);
+      });
+    }
+    console.log(this.state);
+  };
+  handleAddressData = data => {
     this.setState({ address: data }, () =>
       console.log("성공", this.state.address.postcode)
     );
@@ -33,7 +83,7 @@ export class HostRegiste extends Component {
     new window.daum.Postcode({
       oncomplete: data => {
         console.log(data);
-        this.handleData(data);
+        this.handleAddressData(data);
         var addr = data.address; // 최종 주소 변수
 
         // 주소 정보를 해당 필드에 넣는다.
@@ -65,7 +115,6 @@ export class HostRegiste extends Component {
       <div className="host-registe-page">
         <div className="hr-step-container">
           <div className="hr-step-1"></div>
-          <div className="hr-step-2"></div>
         </div>
         <div className="hr-step">step: 1</div>
         <div className="hr-guide-text-container">
@@ -81,16 +130,23 @@ export class HostRegiste extends Component {
         <div className="hr-registe-container">
           호스트 이미지 등록:
           <div className="hr-registe-profile-container">
-            <div className="hr-registe-profile-image"></div>
-            <input
-              onClick={this.log}
-              type="file"
-              className="hr-registe-profile-input"
-            ></input>
+            <div
+              className="hr-registe-profile-image"
+              style={{ backgroundImage: `url(${this.state.image.result})` }}
+            ></div>
+            <form method="post" encType="multipart/form-data">
+              <input
+                onChange={this.imgUpload}
+                type="file"
+                className="hr-registe-profile-input"
+              ></input>
+            </form>
           </div>
           <div className="hr-host-nick-container">
             <div className="host-nick-name">호스트 이름 :</div>
             <input
+              onChange={this.handleData}
+              name="hostName"
               type="text"
               className="host-nick-name-field"
               placeholder="닉네임으로 사용할 이름을 입력하세요."
@@ -99,6 +155,8 @@ export class HostRegiste extends Component {
           <div className="host-intro-container">
             <div className="host-intro">호스트 소개 :</div>
             <textarea
+              onChange={this.handleData}
+              name="hostIntro"
               type="text"
               className="host-intro-field"
               placeholder="게스트에 전할 글을 작성해 주세요."
@@ -107,14 +165,22 @@ export class HostRegiste extends Component {
           <div className="host-relation-container">
             <div className="host-relation">게스트와의 교류 :</div>
             <textarea
+              onChange={this.handleData}
+              name="relation"
               className="host-relation-field"
               placeholder="게스트와 어떤 종류의 교류를 원하시나요?"
             ></textarea>
           </div>
           <div className="host-language-container">
             <div className="host-language">사용가능 언어 :</div>
-            <select className="language-drop">
-              <option value="한국어">한국어</option>
+            <select
+              onChange={this.handleData}
+              name="language"
+              className="language-drop"
+            >
+              <option name="한국어" value="한국어">
+                한국어
+              </option>
               <option value="영어">영어</option>
             </select>
           </div>
@@ -144,6 +210,10 @@ export class HostRegiste extends Component {
               }}
             ></div>
           </form>
+          <div className="hr-button-container">
+            <button className="hr-cancle-button">취소</button>
+            <button className="hr-next-button">다음&nbsp;&nbsp;></button>
+          </div>
         </div>
       </div>
     );
