@@ -1,41 +1,40 @@
 import React, { Component } from "react";
-import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
+import "react-dates/initialize";
 
 class DatePicker extends Component {
-  constructor() {
-    super();
-    this.state = {
-      startY: "",
-      startM: "",
-      startD: "",
-      endY: "",
-      endM: "",
-      endD: ""
-    };
-  }
+  state = {
+    startY: "",
+    startM: "",
+    startD: "",
+    endY: "",
+    endM: "",
+    endD: ""
+  };
   calendarCheck = () => {
-    let startObj = this.state.startDate._d;
+    const { startDate, endDate } = this.state;
+    let startObj = startDate._d;
     let startStr = String(startObj);
     let startArr = startStr.split(" ");
-    let endObj = this.state.endDate._d;
+    let endObj = endDate._d;
     let endStr = String(endObj);
     let endArr = endStr.split(" ");
     console.log(this.state);
-    this.setState({ startD: startArr[2] });
-    this.setState({ startY: startArr[3] });
-    this.setState({ startM: startArr[1] });
-    this.setState({ endD: endArr[2] }, () => console.log(this.state.endD));
-    this.setState({ endY: endArr[3] }, () => console.log(this.state.endY));
-    this.setState({ endM: endArr[1] }, () => this.handleMonth(this.state.endM));
-    //console.log(this.state.endM);
+    this.setState({
+      startD: startArr[2],
+      startY: startArr[3],
+      startM: startArr[1],
+      endD: endArr[2],
+      endY: endArr[3],
+      endM: endArr[1]
+    });
   };
-  handleMonth = month => {
-    if (this.state.endM === "Nov") {
-      this.setState({ endM: 11 }, () => console.log(this.state.endM));
-    }
-  };
+  // handleMonth = month => {
+  //   if (this.state.endM === "Nov") {
+  //     this.setState({ endM: 11 }, () => console.log(this.state.endM));
+  //   }
+  // };
 
   render() {
     // const { startDate, setStartDate } = this.state;

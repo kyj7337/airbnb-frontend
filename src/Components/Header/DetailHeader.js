@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import "./Header2.scss";
+import "./DetailHeader.scss";
 
-export class Header2 extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loginCheck: true
-    };
-  }
+export class DetailHeader extends Component {
+  state = {
+    loginCheck: true
+  };
+
   render() {
     return (
       <div className="header">
@@ -60,4 +58,4 @@ export class Header2 extends Component {
   }
 }
 
-export default Header2;
+export default DetailHeader;

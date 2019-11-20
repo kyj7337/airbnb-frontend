@@ -3,12 +3,9 @@ import "./Header.scss";
 // /import emptyImg from "Images/profileImg.png"
 
 export class Header extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loginCheck: true
-    };
-  }
+  state = {
+    loginCheck: true
+  };
   render() {
     return (
       <div className="header-container">

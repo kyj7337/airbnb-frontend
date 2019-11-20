@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 
 export class PplNumSetting extends Component {
-  constructor() {
-    super();
-    this.state = {
-      inputPplNum: "인원",
-      optionBoxValue: false,
-      adultNum: 0,
-      infantNum: 0
-    };
-  }
+  state = {
+    inputPplNum: "인원",
+    optionBoxValue: false,
+    adultNum: 0,
+    infantNum: 0
+  };
+
   handleOptionBox = () => {
     this.setState({
       optionBoxValue: !this.state.optionBoxValue
@@ -24,36 +22,28 @@ export class PplNumSetting extends Component {
   };
 
   adultMinusBtn = () => {
+    const nestAdultNumMinus = this.state.adultNum - 1;
     if (this.state.adultNum !== 0) {
-      this.setState(
-        {
-          adultNum: this.state.adultNum - 1
-        },
-        () =>
-          this.setState({
-            inputPplNum: `성인 ${this.state.adultNum}, 유아 ${this.state.infantNum}`
-          })
-      );
+      this.setState({
+        adultNum: nestAdultNumMinus,
+        inputPplNum: `성인 ${nestAdultNumMinus}, 유아 ${this.state.infantNum}`
+      });
     }
-    console.log(this.state.inputPplNum);
   };
 
   adultPlusBtn = () => {
-    this.setState(
-      {
-        adultNum: this.state.adultNum + 1
-      },
-      () =>
-        this.setState({
-          inputPplNum: `성인 ${this.state.adultNum}, 유아 ${this.state.infantNum}`
-        })
-    );
+    const nestAdultNumPlus = this.state.adultNum + 1;
+    this.setState({
+      adultNum: nestAdultNumPlus,
+      inputPplNum: `성인 ${nestAdultNumPlus}, 유아 ${this.state.infantNum}`
+    });
   };
   infantMinusBtn = () => {
+    const nestInfantNumMinus = this.state.infantNum - 1;
     if (this.state.infantNum !== 0) {
       this.setState(
         {
-          infantNum: this.state.infantNum - 1
+          infantNum: nestInfantNumMinus
         },
         () =>
           this.setState({
@@ -63,10 +53,11 @@ export class PplNumSetting extends Component {
     }
   };
   infantPlusBtn = () => {
+    const nestInfantNumPlus = this.state.infantNum + 1;
     if (this.state.adultNum === 0) {
       this.setState(
         {
-          infantNum: this.state.infantNum + 1,
+          infantNum: nestInfantNumPlus,
           adultNum: 1
         },
         () =>
@@ -77,7 +68,7 @@ export class PplNumSetting extends Component {
     } else {
       this.setState(
         {
-          infantNum: this.state.infantNum + 1
+          infantNum: nestInfantNumPlus
         },
         () =>
           this.setState({

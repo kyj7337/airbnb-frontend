@@ -11,33 +11,31 @@ import "../../Components/PplNumSetting/PplNumSetting.scss";
 import { recommandMenuData } from "../../Components/PhotoMenu/recommandMenuData";
 
 export class Main extends Component {
-  constructor() {
-    super();
-    this.state = {
-      result: [],
-      offsetNum: 0,
-      limitNum: 5,
-      inputLocation: "",
-      menu: [],
-      recommandData: recommandMenuData,
-      testLocation: "오스투니",
-      testSuperHost: "슈퍼호스트",
-      testReviewNum: 4.93,
-      testHotelInfo: "I SETTE CONI - TRULLO EDERA",
-      viewMore: "2,000",
-      testRecommandTitle1: "서울의 숙소",
-      testRecommandTitle2: "제주(Jeju)의 숙소",
-      testRecommandTitle3: "300개 이상의 숙소",
-      testImage1:
-        "https://a0.muscache.com/im/pictures/e3b8d12c-07dc-4f3d-9cdc-c79e0a442dd4.jpg?aki_policy=x_large",
-      testImage2:
-        "https://a0.muscache.com/im/pictures/4230043/7e9a64d3_original.jpg?aki_policy=xx_large",
-      testImage3:
-        "https://a0.muscache.com/im/pictures/31e7af5d-f92d-445d-a83e-c1dd13678b89.jpg?aki_policy=xx_large",
-      testImage4:
-        "https://a0.muscache.com/im/pictures/10026520/717f5adc_original.jpg?aki_policy=xx_large"
-    };
-  }
+  state = {
+    result: [],
+    offsetNum: 0,
+    limitNum: 5,
+    inputLocation: "",
+    menu: [],
+    recommandData: recommandMenuData,
+    testLocation: "오스투니",
+    testSuperHost: "슈퍼호스트",
+    testReviewNum: 4.93,
+    testHotelInfo: "I SETTE CONI - TRULLO EDERA",
+    viewMore: "2,000",
+    testRecommandTitle1: "서울의 숙소",
+    testRecommandTitle2: "제주(Jeju)의 숙소",
+    testRecommandTitle3: "300개 이상의 숙소",
+    testImage1:
+      "https://a0.muscache.com/im/pictures/e3b8d12c-07dc-4f3d-9cdc-c79e0a442dd4.jpg?aki_policy=x_large",
+    testImage2:
+      "https://a0.muscache.com/im/pictures/4230043/7e9a64d3_original.jpg?aki_policy=xx_large",
+    testImage3:
+      "https://a0.muscache.com/im/pictures/31e7af5d-f92d-445d-a83e-c1dd13678b89.jpg?aki_policy=xx_large",
+    testImage4:
+      "https://a0.muscache.com/im/pictures/10026520/717f5adc_original.jpg?aki_policy=xx_large"
+  };
+
   handleOnChange = e => {
     this.setState({ inputLocation: e.target.value }, () => {
       console.log(this.state.inputLocation);
@@ -142,7 +140,7 @@ export class Main extends Component {
           reviewNum={testReviewNum}
           id={el.id}
           hotelInfo={el.title}
-          img={el.picture}
+          img={el.pic1}
         />
       );
     });
@@ -155,7 +153,7 @@ export class Main extends Component {
           reviewNum={testReviewNum}
           id={el.id}
           hotelInfo={el.title}
-          img={el.picture}
+          img={el.pic1}
         />
       );
     });
