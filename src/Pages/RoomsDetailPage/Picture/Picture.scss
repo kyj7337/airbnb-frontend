@@ -1,0 +1,325 @@
+@import "Styles/Common.scss";
+
+.pic-wrapper {
+  width: 100%;
+  height: 590px;
+  //   background-color: orangered;
+  position: relative;
+  margin-top: 10px;
+  @media #{$device-small} {
+    min-width: 745px !important;
+    width: auto !important;
+    display: block;
+    height: auto;
+
+    //   overflow: none;
+  }
+  .hidden {
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    z-index: 1;
+    margin-top: 20px;
+    display: none;
+    .pic-shareicon,
+    .pic-heart {
+      width: 25px;
+      height: 25px;
+      margin-left: 20px;
+    }
+    @media #{$device-small} {
+      display: block;
+    }
+  }
+
+  .pic-left {
+    position: absolute;
+    width: 50%;
+    height: 590px;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    border: 1px solid rgb(0, 0, 0);
+    @media #{$device-small} {
+      min-width: 100%;
+      height: auto;
+      //   position: relative;
+      //   overflow: none;
+    }
+    .pic-one-on {
+      width: 100%;
+      height: 100%;
+      transform: scale(1);
+      transition-duration: 0.5s;
+      opacity: 50%;
+      @media #{$device-small} {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: block;
+      }
+    }
+    .pic-one-on:hover {
+      border: 1px solid black;
+      transition: transform 0.5s ease-in-out;
+      opacity: 100%;
+      transform: scale(1.02);
+    }
+    .pic-one {
+      width: 100%;
+      height: 100%;
+      transform: scale(1);
+      transition-duration: 0.5s;
+      @media #{$device-small} {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: block;
+      }
+    }
+    .pic-one:hover {
+      border: 1px solid black;
+      transition: transform 0.5s ease-in-out;
+      transform: scale(1.02);
+    }
+  }
+  .pic-right-wrapper {
+    position: absolute;
+    width: 50%;
+    left: 50%;
+    height: 590px;
+    overflow: hidden;
+    @media #{$device-small} {
+      width: 0%;
+    }
+    .pic-right-column1 {
+      width: 50%;
+      position: absolute;
+      height: 590px;
+      @media #{$device-large} {
+        width: 100%;
+      }
+      @media #{$device-small} {
+        display: none;
+      }
+    }
+    .pic-right-one {
+      position: relative;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      overflow: hidden;
+      //   float: left;
+      border: 1px solid rgb(0, 0, 0);
+      //   display: inline-block;
+      .pic-two-on {
+        width: 110%;
+        height: 110%;
+        transform: scale(1);
+        transition-duration: 0.5s;
+        opacity: 50%;
+      }
+      .pic-two-on:hover {
+        border: 1px solid black;
+        transition: transform 0.5s ease-in-out;
+        transform: scale(1.02);
+        opacity: 100%;
+      }
+      .pic-two {
+        width: 110%;
+        height: 110%;
+        transform: scale(1);
+        transition-duration: 0.5s;
+        opacity: 100%;
+      }
+      .pic-two:hover {
+        border: 1px solid black;
+        transition: transform 0.5s ease-in-out;
+        transform: scale(1.02);
+      }
+    }
+    .pic-right-two {
+      position: relative;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      overflow: hidden;
+      //   float: left;
+      border: 1px solid rgb(0, 0, 0);
+      display: inline-block;
+
+      .pic-three {
+        width: 110%;
+        height: 110%;
+        transform: scale(1);
+        transition-duration: 0.5s;
+      }
+      .pic-three-on {
+        width: 110%;
+        height: 110%;
+        transform: scale(1);
+        transition-duration: 0.5s;
+        opacity: 50%;
+      }
+      .pic-three-on:hover {
+        border: 1px solid black;
+        transition: transform 0.5s ease-in-out;
+
+        transform: scale(1.02);
+        opacity: 100%;
+      }
+      .pic-three:hover {
+        border: 1px solid black;
+        transition: transform 0.5s ease-in-out;
+
+        transform: scale(1.02);
+      }
+    }
+    .pic-right-column2 {
+      width: 50%;
+      left: 50%;
+      position: absolute;
+      height: 590px;
+      @media #{$device-large} {
+        display: none;
+      }
+      .pic-right-three {
+        position: relative;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        overflow: hidden;
+        //   float: left;
+        border: 1px solid rgb(0, 0, 0);
+        // display: inline-block;
+        .pic-share {
+          width: 100px;
+          height: 100px;
+          top: 20px;
+          right: 150px;
+          position: absolute;
+          .pic-shareicon {
+            width: 14px;
+            height: 14px;
+            margin-right: 6px;
+          }
+          .share {
+            position: absolute;
+            width: 120px;
+            height: 34px;
+            padding: 6px 15px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            color: black;
+            background-color: #ffffff;
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 22px;
+            box-sizing: border-box;
+          }
+        }
+        .pic-save {
+          width: 100px;
+          height: 100px;
+          top: 20px;
+          right: 13px;
+          position: absolute;
+
+          .pic-heart {
+            width: 14px;
+            height: 14px;
+            margin-right: 6px;
+          }
+          .save {
+            position: absolute;
+            width: 85px;
+            height: 34px;
+            padding: 6px 15px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            color: black;
+            background-color: #ffffff;
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 22px;
+            box-sizing: border-box;
+          }
+        }
+        .pic-four {
+          width: 110%;
+          height: 110%;
+          transform: scale(1);
+          transition-duration: 0.5s;
+        }
+        .pic-four-on {
+          width: 110%;
+          height: 110%;
+          transform: scale(1);
+          transition-duration: 0.5s;
+          opacity: 50%;
+        }
+        .pic-four-on:hover {
+          border: 1px solid black;
+          transition: transform 0.5s ease-in-out;
+
+          transform: scale(1.02);
+          opacity: 100%;
+        }
+        .pic-four:hover {
+          border: 1px solid black;
+          transition: transform 0.5s ease-in-out;
+
+          transform: scale(1.02);
+        }
+      }
+      .pic-right-four {
+        position: relative;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        overflow: hidden;
+        //   float: left;
+        display: inline-block;
+        border: 1px solid rgb(0, 0, 0);
+
+        .pic-five {
+          width: 110%;
+          height: 110%;
+          transform: scale(1);
+          transition-duration: 0.5s;
+        }
+        .pic-five-on {
+          width: 110%;
+          height: 110%;
+          transform: scale(1);
+          transition-duration: 0.5s;
+          opacity: 50%;
+        }
+        .pic-five-on:hover {
+          border: 1px solid black;
+          transition: transform 0.5s ease-in-out;
+          transform: scale(1.02);
+          opacity: 100%;
+        }
+        .pic-five:hover {
+          border: 1px solid black;
+          transition: transform 0.5s ease-in-out;
+          transform: scale(1.02);
+        }
+
+        .pic-four:not(.pic-one) {
+          opacity: 70%;
+        }
+      }
+    }
+  }
+  //   img:hover:not(.pic-two .pic-three .pic-four .pic-five) {
+  //     opacity: 60%;
+  //   }
+
+  //   img:hover:not(img) {
+  //     opacity: none;
+  //   }
+}

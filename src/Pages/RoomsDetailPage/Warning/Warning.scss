@@ -1,0 +1,25 @@
+.warning-wrapper {
+  max-width: 590px;
+  color: #484848;
+  height: auto;
+  margin-bottom: 6px;
+  border-bottom: 0.1px solid #c5c3c3;
+  .warning-name {
+    margin-top: 26px;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.25em;
+    margin-bottom: 16px;
+  }
+  .warning-subname {
+    margin-bottom: 20px;
+  }
+  .warning-list {
+    span {
+      display: inline-block;
+      width: 260px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+  }
+}

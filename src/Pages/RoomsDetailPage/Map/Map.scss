@@ -1,0 +1,33 @@
+.map-wrapper {
+  max-width: 590px;
+  height: auto;
+  color: #484848;
+  .map-text {
+    margin-top: 26px;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.25em;
+    // color: #484848;
+    margin-bottom: 16px;
+  }
+  .map-sub {
+    //   color:#484848;
+    margin-bottom: 16px;
+  }
+  .map {
+    max-width: 590px;
+    height: 350px;
+    .marker {
+      background-image: url("../../../Styles/location.png");
+      background-size: 20px;
+      background-repeat: no-repeat;
+      width: 20px;
+      height: 30px;
+    }
+  }
+  .map-bot {
+    padding-top: 16px;
+    padding-bottom: 24px;
+    border-bottom: 0.1px solid #c5c3c3;
+  }
+}

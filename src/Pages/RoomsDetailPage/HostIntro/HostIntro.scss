@@ -1,0 +1,101 @@
+.host-intro-wrapper {
+  max-width: 594px;
+  height: auto;
+  margin-top: 16px;
+  border-bottom: 0.1px solid #c5c3c3;
+  line-height: 1.375em;
+  padding-bottom: 16px;
+  position: relative;
+  .host-top {
+    color: #484848;
+    .host-top-pic {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin-top: 6px;
+      margin-right: 6px;
+      border: 1px solid #ffffff;
+      border-radius: 30px;
+      width: 64px;
+      height: 64px;
+    }
+    .host-name {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.25em;
+      padding-bottom: 2px;
+      margin-bottom: 8px;
+    }
+    .host-location {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.375em;
+      margin-bottom: 8px;
+    }
+    .auth {
+      margin-bottom: 16px;
+      img {
+        width: 14px;
+        margin-right: 5px;
+      }
+      .span {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.375em;
+      }
+    }
+  }
+  .host-bot {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.375em;
+    color: #484848;
+    span {
+      font-weight: 600;
+    }
+    .host-text {
+      margin-bottom: 16px;
+    }
+    .response-time,
+    .host-language,
+    .response {
+      margin-bottom: 8px;
+    }
+    .to-host {
+      padding: 6px 15px;
+      border: 1px solid #008489;
+      color: #008489;
+      font-size: 14px;
+      line-height: 22px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 6px;
+      margin-bottom: 16px;
+    }
+    .to-host:hover {
+      padding: 6px 15px;
+      border: 1px solid #008489;
+      color: #ffffff;
+      background-color: #008499;
+      font-size: 14px;
+      line-height: 22px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+  .between {
+    padding-top: 16px;
+    border-top: 0.1px solid #c5c3c3;
+    color: #484848;
+    .bold {
+      font-weight: 600;
+    }
+    .color {
+      color: #008489;
+      font-weight: 600;
+      font-size: 16px;
+    }
+  }
+}
