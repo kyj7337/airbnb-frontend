@@ -162,39 +162,40 @@ export class Main extends Component {
     return (
       <div>
         <Header />
-        {/* <video className="video" loop autoPlay muted>
-          <source src={require("./src.mp4")} type="video/mp4" />
-        </video> */}
-        <div className="main__header">
-          <div className="mainImg">
-            <div className="searchBox">
-              <h1>특색 있는 숙소와 즐길 거리를 예약하세요.</h1>
-              <div className="searchBox__form">
-                <div className="destination">
-                  <div className="destination__title">목적지</div>
-                  <div className="destination__input">
-                    <input
-                      placeholder="모든 위치"
-                      onChange={this.handleOnChange}
-                    />
-                  </div>
-                </div>
 
-                <div className="searchBox__calendar">
-                  <div className="calendar__flex">
-                    <div>체크인</div>
-                    <div>체크아웃</div>
-                  </div>
-                  <DatePicker />
+        <div className="main__header">
+          {/* <div className="mainImg"> */}
+          <video className="video" loop autoPlay muted>
+            <source src={require("./src.mp4")} type="video/mp4" />
+          </video>
+          <div className="searchBox">
+            <h1>특색 있는 숙소와 즐길 거리를 예약하세요.</h1>
+            <div className="searchBox__form">
+              <div className="destination">
+                <div className="destination__title">목적지</div>
+                <div className="destination__input">
+                  <input
+                    placeholder="모든 위치"
+                    onChange={this.handleOnChange}
+                  />
                 </div>
-                <div className="searchBox__pplNum__title">인원</div>
-                <PplNumSetting />
-                <div className="searchBox__btnbox">
-                  <button className="searchBtn">검색</button>
+              </div>
+
+              <div className="searchBox__calendar">
+                <div className="calendar__flex">
+                  <div>체크인</div>
+                  <div>체크아웃</div>
                 </div>
+                <DatePicker />
+              </div>
+              <div className="searchBox__pplNum__title">인원</div>
+              <PplNumSetting />
+              <div className="searchBox__btnbox">
+                <button className="searchBtn">검색</button>
               </div>
             </div>
           </div>
+          {/* </div> */}
         </div>
         <div className="recommand__msg">
           에어비앤비와 함께 전 세계를 여행해보세요.
