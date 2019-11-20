@@ -166,3 +166,6 @@ a {
 .displayNone {
   display: none;
 }
+$device-large: "only screen and (max-width : 1128px)";
+$device-small: "only screen and (max-width: 745px)";
+$device-500: "only screen and (max-width:500px)";
