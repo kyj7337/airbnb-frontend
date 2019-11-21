@@ -62,14 +62,14 @@
       width: 200px;
       padding: 20px;
       .hr-registe-profile-image {
+        border: solid 1px rgb(47, 47, 47);
         margin: 20px 7px;
-        width: 100px;
-        height: 100px;
+        width: 130px;
+        height: 130px;
         border-radius: 100%;
         background-size: 100%;
+        background-image: url("https://cdn2.iconfinder.com/data/icons/business-management-52/96/Artboard_20-512.png");
         .hr-registe-profile-input {
-          padding-left: 50px;
-          margin-left: 50px;
         }
       }
     }
@@ -154,6 +154,25 @@
         height: 30px;
       }
     }
+    .language-tag-container {
+      width: 80%;
+      height: 40px;
+      margin: 10px 10px;
+      display: flex;
+
+      .language-tag {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        font-size: 17px;
+        border-radius: 20px;
+        border: solid 1px #008489;
+        background-color: #008489;
+        width: min-content;
+        height: 20px;
+        color: white;
+      }
+    }
     .address-container {
       .host-address {
         margin: 60px 10px;
@@ -190,6 +209,9 @@
       width: 25%;
       padding: 20px;
       .hr-cancle-button {
+        display: flex;
+        align-items: center;
+        padding-left: 23px;
         font-size: 20px;
         width: 80px;
         height: 40px;
@@ -200,7 +222,7 @@
       .hr-next-button {
         display: flex;
         align-items: center;
-        padding: 20px;
+        padding-left: 25px;
         font-size: 20px;
         width: 100px;
         height: 40px;

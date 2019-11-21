@@ -1,15 +1,36 @@
 .dropdown-container {
   margin-top: 50px;
+  display: flex;
+  align-items: center;
   .dropdown-name {
     margin: 10px;
     font-size: 25px;
     font-weight: 700;
   }
   .dropdown-field {
-    margin-left: 10px;
+    margin: 30px 10px;
     font-size: 15px;
-    margin-top: 30px;
+
     width: 200px;
     height: 30px;
+  }
+}
+.tag-container {
+  width: 180%;
+  height: 40px;
+  margin: 10px 10px;
+  display: flex;
+
+  .tag {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-size: 12px;
+    border-radius: 20px;
+    border: solid 1px #008489;
+    background-color: #008489;
+    width: min-content;
+    height: 20px;
+    color: white;
   }
 }

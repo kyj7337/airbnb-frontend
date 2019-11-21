@@ -20,7 +20,7 @@ export class Routes extends React.Component {
           <Route exact path="/SignUp" component={SignUp} />
           <Route exact path="/SignUpDetail" component={SignUpDetail} />
           <Route exact path="/HostRegiste" component={HostRegiste} />
-          <Route exact path="/HostRegisteStep2" component={HostRegisteStep2} />
+          <Route exact path="/HostRegiste/2" component={HostRegisteStep2} />
         </Switch>
       </Router>
     );

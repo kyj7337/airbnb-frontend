@@ -1,48 +1,154 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
+import axios, { post } from "axios";
 import "./HostRegiste.scss";
-
+import DropDown from "../../Components/DropDown";
+// const getBase64 = file => {
+//   return new Promise((resolve, reject) => {
+//     const reader = new FileReader();
+//     reader.onload = () => resolve(reader.result);
+//     reader.onerror = error => reject(error);
+//     reader.readAsDataURL(file);
+//   });
+// };
 export class HostRegiste extends Component {
   constructor() {
     super();
     this.state = {
-      image: "",
+      image: {
+        result:
+          "https://cdn2.iconfinder.com/data/icons/business-management-52/96/Artboard_20-512.png"
+      },
       hostName: "",
       hostIntro: "",
       relation: "",
-      language: ""
+      language: [],
+      address: "",
+      file: "",
+      language_list: [],
+      tag: []
     };
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.fileUpload = this.fileUpload.bind(this);
   }
-
-  imgUpload = e => {
-    e.persist();
+  onFormSubmit(e) {
+    console.log(this.state.file);
+    e.preventDefault(); // Stop form submit
+    this.fileUpload(this.state.file).then(res => {
+      console.log(res);
+    });
+    this.nextStep();
+  }
+  onChange(e) {
     let reader = new FileReader();
     let file = e.target.files[0];
-    this.setState({ image: reader }, () =>
-      console.log("로드앤드", this.state.image)
-    );
-
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
     reader.onloadend = () => {
       this.setState({ ...this.state, imgArr: reader.result });
     };
-
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-
-    let formData = new FormData();
-    formData.append("image", file);
-
-    let headers = {
-      "content-type": "multipart/form-data"
+    this.setState({ file: file });
+    this.setState({ image: reader }, () =>
+      console.log("로드앤드", this.state.image)
+    );
+  }
+  //multiple selector append
+  fileUpload(file) {
+    console.log(file);
+    const url = "http://10.58.7.71:8000/registration/host_image";
+    const formData = new FormData();
+    formData.append("host_image", file);
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMzl9.IPsnya-POvVfcE-9OavKtcALGPxy61uXJJ7nQaCSazc"
+      }
     };
 
-    // Axios.post("http://10.58.3.112:8000/aws/upload", formData, {
-    //   headers
-    // });
-  };
+    return post(url, formData, config);
+  }
+  // imageUpload = e => {
+  //   const file = e.target.files[0];
+  //   getBase64(file).then(base64 => {
+  //     localStorage["fileBase64"] = base64;
 
-  handleData = e => {
+  //     console.debug("file stored", base64);
+  //   });
+
+  //   this.setState({ a: localStorage.getItem("fileBase64") });
+
+  //   let formData = new FormData();
+  //   formData.append("images", this.state.file);
+  //   console.log(formData.append("image", this.state.file));
+  //   let headers = {
+  //     "content-type": "multipart/form-data"
+  //   };
+  //   fetch("http://10.58.3.114:8000/registration/host_info", {
+  //     method: "post",
+  //     formData,
+  //     headers: headers,
+
+  //     FILES: { thumbnail: this.state.a }
+  //   })
+  //     .then(response => response.json())
+  //     .then(res => {
+  //       console.log(res);
+  //     });
+  // };
+  // imgUpload = e => {
+  //   e.persist();
+  //   let reader = new FileReader();
+  //   let file = e.target.files[0];
+  //   let formData = new FormData();
+  //   formData.append("images", this.state.file);
+  //   console.log(formData);
+  //   for (let key in formData) {
+  //     console.log(key);
+  //   }
+  //   this.setState({ file: file });
+  //   if (file) {
+  //     reader.readAsDataURL(file);
+  //   }
+
+  //   this.setState({ image: reader }, () =>
+  //     console.log("로드앤드", this.state.image)
+  //   );
+  //   reader.onloadend = () => {
+  //     this.setState({ ...this.state, imgArr: reader.result });
+  //   };
+  // };
+  // nextStep = e => {
+  //   let formData = new FormData();
+  //   formData.append("images", this.state.file);
+  //   console.log(formData.append("image", this.state.file));
+  //   let headers = {
+  //     "content-type": "multipart/form-data"
+  //   };
+
+  //   fetch("http://10.58.3.114:8000/registration/host_info", {
+  //     method: "post",
+  //     formData,
+  //     headers: headers,
+  //     body: JSON.stringify({
+  //       nickname: this.state.hostName,
+  //       intro: this.state.hostIntro,
+  //       interaction: this.state.relation,
+  //       country: this.state.address.roadAddressEnglish,
+  //       city: this.state.address.query,
+  //       language: []
+  //     }),
+  //     FILES: { thumbnail: this.state.image }
+  //   })
+  //     .then(response => response.json())
+  //     .then(res => {
+  //       console.log(res);
+  //     });
+  // };
+
+  handleText = e => {
     if (e.target.name === "hostName") {
       this.setState({ hostName: e.target.value });
     } else if (e.target.name === "hostIntro") {
@@ -110,8 +216,66 @@ export class HostRegiste extends Component {
       }
     }).open();
   };
-
+  componentDidMount() {
+    fetch("http://10.58.7.71:8000/registration", {
+      method: "get"
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        console.log(res);
+        this.setState({ language: res.language_list }, () => {
+          console.log(this.state.language);
+        });
+      });
+  }
+  nextStep = () => {
+    console.log(this.state);
+    fetch("http://10.58.7.71:8000/registration/host_info", {
+      method: "post",
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMzl9.IPsnya-POvVfcE-9OavKtcALGPxy61uXJJ7nQaCSazc"
+      },
+      body: JSON.stringify({
+        nickname: this.state.hostName,
+        intro: this.state.hostIntro,
+        interaction: this.state.relation,
+        country: this.state.address.address,
+        city: "",
+        language_list: this.state.language_list
+      })
+    }).then(res => {
+      if (res.status === 200) {
+        this.props.history.push("/hostRegisteStep2");
+      }
+    });
+    // .then(res => {
+    //   console.log(res);
+    // });
+  };
+  handledata = e => {
+    console.log(e.target.id);
+    this.setState(
+      {
+        language_list: this.state.language_list.concat([
+          { id: e.target.value }
+        ]),
+        tag: this.state.tag.concat(
+          this.state.language.filter(el => el.id === e.target.value)
+        )
+      },
+      () => {
+        console.log(this.state.value);
+      }
+    );
+  };
   render() {
+    const languageTag = this.state.tag.map(el => {
+      return <div className="language-tag">{el}</div>;
+    });
+
     return (
       <div className="host-registe-page">
         <div className="hr-step-container">
@@ -130,93 +294,102 @@ export class HostRegiste extends Component {
 
         <div className="hr-registe-container">
           호스트 이미지 등록:
-          <div className="hr-registe-profile-container">
-            <div
-              className="hr-registe-profile-image"
-              style={{ backgroundImage: `url(${this.state.image.result})` }}
-            ></div>
-            <form method="post" encType="multipart/form-data">
+          <form onSubmit={this.onFormSubmit}>
+            <div className="hr-registe-profile-container">
+              <div
+                className="hr-registe-profile-image"
+                style={{
+                  backgroundImage: `url(${this.state.image.result})`
+                }}
+              ></div>
+              {/* <input
+                type="file"
+                id="imageFile"
+                name="imageFile"
+                onChange={this.imageUpload}
+              /> */}
               <input
-                onChange={this.imgUpload}
+                onChange={this.onChange}
                 type="file"
                 className="hr-registe-profile-input"
               ></input>
-            </form>
-          </div>
-          <div className="hr-host-nick-container">
-            <div className="host-nick-name">호스트 이름 :</div>
-            <input
-              onChange={this.handleData}
-              name="hostName"
-              type="text"
-              className="host-nick-name-field"
-              placeholder="닉네임으로 사용할 이름을 입력하세요."
-            ></input>
-          </div>
-          <div className="host-intro-container">
-            <div className="host-intro">호스트 소개 :</div>
-            <textarea
-              onChange={this.handleData}
-              name="hostIntro"
-              type="text"
-              className="host-intro-field"
-              placeholder="게스트에 전할 글을 작성해 주세요."
-            ></textarea>
-          </div>
-          <div className="host-relation-container">
-            <div className="host-relation">게스트와의 교류 :</div>
-            <textarea
-              onChange={this.handleData}
-              name="relation"
-              className="host-relation-field"
-              placeholder="게스트와 어떤 종류의 교류를 원하시나요?"
-            ></textarea>
-          </div>
-          <div className="host-language-container">
-            <div className="host-language">사용가능 언어 :</div>
-            <select
-              onChange={this.handleData}
-              name="language"
-              className="language-drop"
-            >
-              <option name="한국어" value="한국어">
-                한국어
-              </option>
-              <option value="영어">영어</option>
-            </select>
-          </div>
-          <form className="address-container">
-            <div className="host-address">위치 :</div>
-            <div className="inner-address-container">
-              <input type="text" id="address-search-box" placeholder="주소" />
-              <button
-                id="address-search-button"
-                onClick={this.searchAddress}
+            </div>
+            <div className="hr-host-nick-container">
+              <div className="host-nick-name">호스트 이름 :</div>
+              <input
+                onChange={this.handText}
+                name="hostName"
+                type="text"
+                className="host-nick-name-field"
+                placeholder="닉네임으로 사용할 이름을 입력하세요."
+              ></input>
+            </div>
+            <div className="host-intro-container">
+              <div className="host-intro">호스트 소개 :</div>
+              <textarea
+                onChange={this.handText}
+                name="hostIntro"
+                type="text"
+                className="host-intro-field"
+                placeholder="게스트에 전할 글을 작성해 주세요."
+              ></textarea>
+            </div>
+            <div className="host-relation-container">
+              <div className="host-relation">게스트와의 교류 :</div>
+              <textarea
+                onChange={this.handleData}
+                name="relation"
+                className="host-relation-field"
+                placeholder="게스트와 어떤 종류의 교류를 원하시나요?"
+              ></textarea>
+            </div>
+            {this.state.language && (
+              <DropDown
+                name="사용가능 언어 "
+                data={this.state.language}
+                handle={this.handledata}
+              />
+            )}
+            <div className="language-tag-container">
+              {this.state.language && languageTag}
+            </div>
+            <div className="address-container">
+              <div className="host-address">위치 :</div>
+              <div className="inner-address-container">
+                <input type="text" id="address-search-box" placeholder="주소" />
+                <button
+                  id="address-search-button"
+                  onClick={this.searchAddress}
+                  type="submit"
+                >
+                  주소검색
+                </button>
+              </div>
+              <div className="address-detail-container">
+                <div className="address-eng"></div>
+              </div>
+              <div
+                id="map"
+                style={{
+                  width: "500px",
+                  height: "500px",
+                  marginTop: "10px",
+                  marginLeft: "10px",
+                  display: "none"
+                }}
+              ></div>
+            </div>
+            <div className="hr-button-container">
+              <button className="hr-cancle-button">취소</button>
+              <Link
+                to={"/hostRegiste/2"}
                 type="submit"
+                className="hr-next-button"
               >
-                주소검색
-              </button>
+                다음&nbsp;&nbsp;>
+              </Link>
             </div>
-            <div className="address-detail-container">
-              <div className="address-eng"></div>
-            </div>
-            <div
-              id="map"
-              style={{
-                width: "500px",
-                height: "500px",
-                marginTop: "10px",
-                marginLeft: "10px",
-                display: "none"
-              }}
-            ></div>
           </form>
-          <div className="hr-button-container">
-            <button className="hr-cancle-button">취소</button>
-            <Link to="/HostRegisteStep2" className="hr-next-button">
-              다음&nbsp;&nbsp;>
-            </Link>
-          </div>
         </div>
       </div>
     );

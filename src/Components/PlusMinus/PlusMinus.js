@@ -11,9 +11,13 @@ export class PlusMinus extends Component {
     console.log(e.target);
     let plusMinus = this.state.num;
     if (e.target.name === "minus" && this.state.num > 0) {
-      this.setState({ num: (plusMinus -= 1) }, () => console.log(this.state));
+      this.setState({ num: (plusMinus -= 1) }, () =>
+        this.props.pm(this.state.num, this.props.nameProps)
+      );
     } else if (e.target.name === "plus" && this.state.num < 20) {
-      this.setState({ num: (plusMinus += 1) }, () => console.log(this.state));
+      this.setState({ num: (plusMinus += 1) }, () =>
+        this.props.pm(this.state.num, this.props.nameProps)
+      );
     }
   };
   render() {
