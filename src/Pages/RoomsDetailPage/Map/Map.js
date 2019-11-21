@@ -12,7 +12,7 @@ export class Map extends Component {
       lat: null,
       lng: null
     },
-    zoom: 3
+    zoom: 12
   };
 
   componentDidMount() {

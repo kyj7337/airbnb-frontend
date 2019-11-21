@@ -4,11 +4,19 @@ import "./MainHost.scss";
 
 export class MainHost extends Component {
   render() {
-    const { name, hostpic, hostname, maxpeople, bed, bathroom } = this.props;
+    const {
+      name,
+      hostpic,
+      hostname,
+      maxpeople,
+      bed,
+      bathroom,
+      cityname
+    } = this.props;
     return (
       <div className="main-host">
         <div className="room-name">{name}</div>
-
+        <div className="room-name-sub">{cityname}</div>
         <div className="host-pic">
           <img src={hostpic} alt="" className="host-pic-image" />
           <span className="host-name">{hostname}</span>

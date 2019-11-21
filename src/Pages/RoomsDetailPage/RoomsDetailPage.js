@@ -40,7 +40,7 @@ export class RoomsDetailPage extends Component {
   render() {
     const { data } = this.state;
     return (
-      <>
+      <div className="whole-wrapper">
         <Picture
           pic1={data.pic1}
           pic2={data.pic2}
@@ -49,11 +49,8 @@ export class RoomsDetailPage extends Component {
           pic5={data.pic5}
         ></Picture>
 
-        <RoomDetailMain></RoomDetailMain>
-        {/* <div className="Goo">
-          <Google />
-        </div> */}
-      </>
+        <RoomDetailMain />
+      </div>
     );
   }
 }

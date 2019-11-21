@@ -25,7 +25,6 @@ window.fbAsyncInit = function() {
 })(document, "script", "facebook-jssdk");
 
 window.IMP.init("imp80616913");
-
 ReactDOM.render(<Routes />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change

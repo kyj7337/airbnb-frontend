@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Picture.scss";
-import PictureMockup from "./PictureMockup";
+// import PictureMockup from "./PictureMockup";
 
 export class Picture extends Component {
   state = {

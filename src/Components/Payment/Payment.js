@@ -1,13 +1,19 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { PayDetailAPI } from "config.js";
+
 import "./Payment.scss";
 
 export class Payment extends Component {
   state = {
-    name: "TestGuest",
     amount: null,
-    email: "kyj7337@korea.ac.kr",
-    personcount: 4
-    //인원 수, 지수님 달력에서 인원 설정할 수 있는거에서 받아오면됨. 받아오면 state 값 지우고 const 에 있는 personcount도 this.props로 바꿔줘야됨
+    S_year: null,
+    S_month: null,
+    S_day: null,
+    E_year: null,
+    E_month: null,
+    E_day: null,
+    room_id: null
   };
 
   pay = () => {
@@ -33,7 +39,23 @@ export class Payment extends Component {
         }
       }
     );
+    this.forbackend();
   };
+
+  forbackend = () => {
+    // const { state } = this.state;
+    console.log(JSON.stringify(this.state));
+    fetch(PayDetailAPI, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: localStorage.getItem("access_token")
+      },
+      body: JSON.stringify(this.state)
+    });
+  };
+  //paydetailAPI를 경연님이 만든 endpoint에 맞춰야됨 (수정은 config.js에서)
+
   feecheck = () => {
     const { amount } = this.state;
     const { usingday, cleaning_fee, price } = this.props;
@@ -46,6 +68,26 @@ export class Payment extends Component {
       this.setState({ amount: null });
       console.log("amount:null");
     }
+    this.one();
+  };
+  one = () => {
+    const {
+      S_year,
+      S_month,
+      S_day,
+      E_year,
+      E_month,
+      E_day,
+      room_id
+    } = this.props;
+    this.setState({ S_year: S_year }, () => {});
+    this.setState({ S_month: S_month }, () => {});
+    this.setState({ S_day: S_day }, () => {});
+    this.setState({ E_year: E_year }, () => {});
+    this.setState({ E_month: E_month }, () => {});
+    this.setState({ E_day: E_day }, () => {});
+    this.setState({ room_id: room_id }, () => {});
+    console.log(this.state);
   };
 
   render() {
@@ -61,7 +103,6 @@ export class Payment extends Component {
       cleaning_fee,
       personcount
     } = this.props;
-
     return (
       <div className="payment-wrapper">
         <div className="payment-main">
@@ -146,4 +187,4 @@ export class Payment extends Component {
   }
 }
 
-export default Payment;
+export default withRouter(Payment);

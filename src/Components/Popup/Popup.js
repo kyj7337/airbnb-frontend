@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Popup.scss";
-import PopupMockup from "./PopupMockup";
+// import PopupMockup from "./PopupMockup";
 
 export class Popup extends Component {
   constructor() {

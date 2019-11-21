@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Warning.scss";
-import WarningMockup from "./WarningMockup";
+// import WarningMockup from "./WarningMockup";
 
 export class Warning extends Component {
   constructor(props) {

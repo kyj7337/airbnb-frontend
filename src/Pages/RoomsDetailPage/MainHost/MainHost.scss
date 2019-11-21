@@ -13,6 +13,9 @@
     padding-top: 6px;
     padding-bottom: 6px;
     width: 480px;
+    @media #{$device-large} {
+      width: 450px;
+    }
   }
   .room-name-sub {
     font-size: 16px;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import RoomDetailMockUp from "Pages/RoomsDetailPage/RoomDetailMain/RoomDetailMockup";
+// import RoomDetailMockUp from "Pages/RoomsDetailPage/RoomDetailMain/RoomDetailMockup";
 import "./HostIntro.scss";
 
 export class HostIntro extends Component {
