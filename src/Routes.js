@@ -4,6 +4,7 @@ import Main from "./Pages/Main";
 import RoomsDetailPage from "./Pages/RoomsDetailPage";
 import SignUp from "./Pages/SignUp";
 import Login from "./Pages/Login";
+import HostAdmin from "./Pages/HostAdmin";
 import "./Styles/Common.scss";
 import SignUpDetail from "./Components/SignUpDetail";
 import GuestDetail from "./Pages/GuestDetail";
@@ -18,6 +19,7 @@ export class Routes extends React.Component {
           <Route exact path="/SignUp" component={SignUp} />
           <Route exact path="/SignUpDetail" component={SignUpDetail} />
           <Route exact path="/GuestDetail" component={GuestDetail} />
+          <Route exact path="/HostAdmin" component={HostAdmin} />
         </Switch>
       </Router>
     );
