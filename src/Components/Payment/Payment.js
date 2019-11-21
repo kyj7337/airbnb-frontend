@@ -43,7 +43,7 @@ export class Payment extends Component {
   };
 
   forbackend = () => {
-    const { state } = this.state;
+    // const { state } = this.state;
     console.log(JSON.stringify(this.state));
     fetch(PayDetailAPI, {
       method: "POST",

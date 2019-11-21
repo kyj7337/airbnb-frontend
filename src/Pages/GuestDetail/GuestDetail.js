@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Simple from "Components/Simple/Simple";
-import { GuestDetailAPI, RoomDetailAPI } from "config.js";
+import { GuestDetailAPI } from "config.js";
 import "./GuestDetail.scss";
 import Left from "./Left";
 

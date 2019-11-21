@@ -60,15 +60,10 @@ export class RoomDetailMain extends Component {
 
     if (this.state.startDate == null) {
       alert("날짜를 설정하세요");
-    }
-    // else if(){
-
-    // }
-    else {
+    } else {
       this.ToNumber();
       this.gap();
       this.setState({ button: !button });
-      // console.log(this.state);
     }
   };
   ToNumber = () => {
@@ -191,9 +186,9 @@ export class RoomDetailMain extends Component {
     let btndisappear = "button-wrapper-disappear";
     let btnappear = "button-wrapper";
 
-    const BAD_DATES = [moment(), moment().add(2, "days")];
-    const isDayBlocked = day =>
-      BAD_DATES.filter(d => d.isSame(day, "day")).length > 0;
+    // const BAD_DATES = [moment(), moment().add(2, "days")];
+    // const isDayBlocked = day =>
+    //   BAD_DATES.filter(d => d.isSame(day, "day")).length > 0;
 
     return (
       <div>
