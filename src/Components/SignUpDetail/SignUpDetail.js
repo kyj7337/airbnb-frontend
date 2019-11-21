@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./SignUpDetail.scss";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 export class SignUpDetail extends Component {
   constructor() {
     super();
