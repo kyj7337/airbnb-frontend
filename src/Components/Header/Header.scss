@@ -22,7 +22,7 @@
     display: flex;
 
     font-weight: 600;
-    color: white;
+    color: black;
     margin-right: 30px;
 
     &__beforeSignIn {
@@ -75,12 +75,12 @@
   &__joinHost:hover,
   &__signup:hover,
   &__signin:hover {
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid black;
   }
 }
 .navbar__afterSignIn {
   .logout:hover {
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid black;
   }
 }
 .displayNone {

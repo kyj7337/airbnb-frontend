@@ -6,12 +6,14 @@ import SignUp from "./Pages/SignUp";
 import Login from "./Pages/Login";
 import "./Styles/Common.scss";
 import SignUpDetail from "./Components/SignUpDetail";
+import ListPage from "./Pages/ListPage/ListPage";
 export class Routes extends React.Component {
   render() {
     return (
       <Router>
         <Switch>
           <Route exact path="/" component={Main} />
+          <Route exact path="/list" component={ListPage} />
           <Route exact path="/RoomsDetailPage" component={RoomsDetailPage} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/SignUp" component={SignUp} />

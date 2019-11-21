@@ -1,5 +1,4 @@
 @import "Styles/Common.scss";
-
 .main__header {
   font-size: 15px;
   height: 100%;
@@ -110,7 +109,8 @@
   margin-bottom: 8px;
 }
 
-.recommand__msg {
+.recommend__msg {
+  color: #484848;
   padding: 0 80px;
   font-size: 24px;
   font-weight: 600;
@@ -118,7 +118,7 @@
   width: 100%;
   margin-top: 120vh;
 }
-.recommand {
+.recommend {
   width: 100%;
   padding: 0 80px 80px 80px;
 
@@ -154,12 +154,70 @@
   }
 }
 
-.recommandByReview {
+.recommendByReview {
   padding: 0 80px;
   //margin-bottom: 80px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  &__biggerPhotoContainer {
+    width: 25%;
+
+    &__menu {
+      width: 100%;
+      padding: 12px 8px;
+
+      img {
+        width: 100%;
+        height: 220px;
+        border-radius: 3px;
+      }
+      .hotelInfo {
+        &__Bar {
+          display: flex;
+          margin-top: 8px;
+          margin-bottom: 8px;
+
+          .superhost {
+            font-size: 12px;
+            padding: 2px;
+            border: 1px solid black;
+            border-radius: 4px;
+            font-weight: 600;
+          }
+          .location {
+            color: grey;
+            margin-left: 8px;
+            font-size: 14px;
+            line-height: 20px;
+          }
+          .starReview {
+            margin-left: auto;
+            display: flex;
+            line-height: 13px !important;
+
+            &__redStar {
+              background-image: url("../../Images/red-star-icon.png");
+              background-size: 12px;
+              width: 12px;
+              height: 12px;
+              margin-right: 5px;
+            }
+          }
+        }
+        &__title {
+          font-size: 16px;
+          font-weight: 400;
+          font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+            "Helvetica Neue", sans-serif;
+          text-overflow: ellipsis !important;
+          color: #484848;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+    }
+  }
 
   &__photoContainer {
     width: 20%;
@@ -212,7 +270,7 @@
           font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
             "Helvetica Neue", sans-serif;
           text-overflow: ellipsis !important;
-          color: rgb(34, 34, 34) !important;
+          color: #484848;
           white-space: nowrap;
           overflow: hidden;
         }
@@ -224,11 +282,12 @@
 //   display: none;
 // }
 
-.recommandByReview__header {
+.recommendByReview__header {
   padding: 0 80px;
   div {
     width: 50%;
-    .recommandByReview-title {
+    .recommendByReview-title {
+      color: #484848;
       font-size: 24px;
       font-weight: 800;
       width: 100%;
@@ -250,4 +309,25 @@
 }
 .eachContainer {
   margin-top: 80px;
+
+  .extraMsg {
+    font-size: 16px;
+    color: #484848;
+    padding: 0 80px;
+    margin-bottom: 15px;
+  }
+  .plusRoomImg {
+    background-image: url("../../Images/mainPlusRoom.png");
+    background-size: cover;
+    width: 1360px;
+    height: 300px;
+    margin-left: 80px;
+    //margin-bottom: 60px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.mainWholeContainer {
+  margin-bottom: 80px;
 }

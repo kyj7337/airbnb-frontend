@@ -1,1 +1,56 @@
-@import "../../Styles/Common.scss";
+@import "Styles/Common.scss";
+.WholeListContainer {
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif;
+  color: rgb(72, 72, 72);
+  display: flex;
+  width: 100%;
+
+  .listPageLeftSide {
+    width: 60%;
+    .seperateLine {
+      margin-top: 85px;
+      width: 100%;
+      border-bottom: 1px solid #ebebeb;
+    }
+    .infoMsg {
+      width: 100%;
+      margin-top: 3vh;
+      margin-left: 25px;
+      display: flex;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ebebeb;
+      .infoMsgIcon {
+        background-image: url("../../Images/prizeIcon.gif");
+        background-size: 40px;
+        width: 35px;
+        height: 35px;
+      }
+      .infoMsgline {
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+    }
+    .listpageTitle {
+      width: 50%;
+      font-size: 27px;
+      font-weight: bold;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      margin-left: 36px;
+      font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+        "Helvetica Neue", sans-serif;
+      color: rgb(72, 72, 72);
+    }
+  }
+  .listPageRightSide {
+    position: sticky;
+    position: -webkit-sticky;
+    right: 0;
+    bottom: 0;
+    width: 680px;
+    height: 680px;
+    top: 70px;
+    //argin-top: 15vh;
+  }
+}
