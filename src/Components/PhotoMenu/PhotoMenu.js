@@ -2,6 +2,7 @@ import React from "react";
 
 function PhotoMenu(props) {
   const { location, superHost, reviewNum, hotelInfo, img, id } = props;
+
   return (
     <div id={id} className="recommandByReview__photoContainer">
       <div className="recommandByReview__photoContainer__menu">

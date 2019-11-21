@@ -235,7 +235,7 @@ export class RoomDetailMain extends Component {
               onFocusChange={focusedInput => this.setState({ focusedInput })}
               startDatePlaceholderText="&nbsp;&nbsp;&nbsp;&nbsp;체크인"
               endDatePlaceholderText="&nbsp;&nbsp;&nbsp;체크아웃"
-              minimumNights="2"
+              // minimumNights="2"
               monthFormat="YYYY년MM월"
               displayFormat="MM월 DD일"
               // disableScroll="false"

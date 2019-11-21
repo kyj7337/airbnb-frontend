@@ -34,19 +34,6 @@ export class GuestDetail extends Component {
   };
 
   render() {
-    const {
-      check_in_year,
-      check_in_month,
-      check_in_day,
-      check_out_year,
-      check_out_month,
-      check_out_day,
-      price,
-      room_picture,
-      room_id,
-      refund_desc
-    } = this.state.data;
-    // console.log("render끝날때", this.state);
     return (
       <div className="guest-detail-wrapper">
         <img className="test" src={require("./aa.PNG")} alt="" />
@@ -63,22 +50,7 @@ export class GuestDetail extends Component {
         <div className="detail-right">
           {this.state.data.reservation_data &&
             this.state.data.reservation_data.map((e, index) => (
-              <Simple
-                onClick={this.handlerclick}
-                key={index}
-                S_year={check_in_year}
-                S_month={check_in_month}
-                S_day={check_in_day}
-                E_year={check_out_year}
-                E_month={check_out_month}
-                E_day={check_out_day}
-                price={price}
-                picture={room_picture}
-                id={room_id}
-                refund_desc={refund_desc}
-              >
-                {e}
-              </Simple>
+              <Simple>{e}</Simple>
             ))}
           {/* <Simple
             S_year={S_year}
