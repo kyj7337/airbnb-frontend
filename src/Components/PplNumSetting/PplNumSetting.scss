@@ -1,0 +1,102 @@
+@import "../../Styles/Common.scss";
+
+.searchBox__pplNum {
+  &__title {
+    margin-top: 16px;
+    margin-bottom: 10px;
+  }
+  //   .header2-pplNum {
+  //     width: 35px;
+  //     border: none;
+  //     padding: 0;
+  //   }
+  &__btn {
+    text-align: left;
+    margin-top: 0;
+    height: 48px;
+    width: 100%;
+    padding: 0 12px;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    //margin-bottom: 23px;
+  }
+  &__option {
+    background-color: white;
+    box-shadow: rgba(26, 26, 29, 0.3) 0px 15px 46px -10px;
+    min-width: 377px;
+    padding: 16px 24px;
+    height: 180px;
+    border-radius: 4px;
+    border: 1px solid rgb(235, 235, 235);
+    position: absolute !important;
+    z-index: 3000 !important;
+
+    .option-div {
+      display: flex;
+      justify-content: space-between;
+      vertical-align: middle;
+      margin-top: 16px;
+      .adultNum {
+        font-weight: 700;
+        color: #484848;
+        line-height: 35px;
+        font-size: 16px;
+        span {
+          margin-left: 5px;
+          font-weight: 200;
+        }
+      }
+      .adultNumBtn {
+        display: flex;
+        .minusBtn {
+          //line-height: 20;
+          border-radius: 50%;
+          color: rgb(0, 132, 137);
+          border: 1px solid rgb(0, 132, 137);
+          width: 32px;
+          height: 32px;
+          font-size: 30px;
+          font-weight: 100;
+          line-height: 10px;
+          margin-right: 14px;
+        }
+        .pplNumStatus {
+          font-size: 17px;
+          color: #484848;
+          font-weight: 900;
+          line-height: 35px;
+        }
+        .plusBtn {
+          border-radius: 50%;
+          color: rgb(0, 132, 137);
+          border: 1px solid rgb(0, 132, 137);
+          width: 32px;
+          height: 32px;
+          font-size: 25px;
+          font-weight: 900;
+          margin-left: 14px;
+        }
+      }
+    }
+
+    .option-save {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+      .pplNumdeleteBtn {
+        font-weight: 900;
+        color: black;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .pplNumSaveBtn {
+        font-weight: 900;
+        color: rgb(0, 132, 137);
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
