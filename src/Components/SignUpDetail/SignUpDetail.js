@@ -70,6 +70,7 @@ export class SignUpDetail extends Component {
           hideMode: true
         });
   };
+
   faceBookLogin = () => {
     window.FB.login(
       function(response) {
@@ -91,6 +92,7 @@ export class SignUpDetail extends Component {
 
   render() {
     const { hideMode, emailVal, passwordVal, firstName, lastName } = this.state;
+
     return (
       <div className="sd-page">
         <div className="sd-container">
@@ -110,6 +112,7 @@ export class SignUpDetail extends Component {
             <span className="or">또는</span>
             <div className="under-border"></div>
           </div>
+
           <div className="sd-email-box-container">
             <input
               onChange={this.handleEmail}
@@ -153,6 +156,7 @@ export class SignUpDetail extends Component {
               className={hideMode ? "password-image" : "password-image-on"}
             ></div>
           </div>
+
           <div className="warn-container">
             <div className="warn-protection-container">
               <svg className="x-mark" fill="red"></svg>
@@ -210,9 +214,11 @@ export class SignUpDetail extends Component {
             에어비앤비의 마케팅 프로모션, 특별 할인 및 추천 여행 정보, 정책
             변경사항을 이메일로 보내드립니다.
           </div>
+
           <button onClick={this.submitSignUp} className="sign-up-submit">
             가입하기
           </button>
+
           <div className="denied-container">
             <input className="denied-check-box" type="checkbox" />
             <div className="denied-message">

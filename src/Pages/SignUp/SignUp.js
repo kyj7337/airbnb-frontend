@@ -7,6 +7,7 @@ export class SignUp extends Component {
     super();
     this.state = {};
   }
+
   // faceBookLogin = () => {
   //   window.FB.login(
   //     function(response) {

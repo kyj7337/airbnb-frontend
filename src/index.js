@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Routes from "./Routes";
-
 window.Kakao.init("ef4d978887fc12d6f3b6f3ac59c12316");
 // window.fbAsyncInit = function() {
 //   window.FB.init({
@@ -25,8 +24,6 @@ window.Kakao.init("ef4d978887fc12d6f3b6f3ac59c12316");
 //   fjs.parentNode.insertBefore(js, fjs);
 // })(document, "script", "facebook-jssdk");
 
-ReactDOM.render(<Routes />, document.getElementById("root"));
+window.IMP.init("imp80616913");
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+ReactDOM.render(<Routes />, document.getElementById("root"));

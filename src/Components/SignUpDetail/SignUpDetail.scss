@@ -4,13 +4,15 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+
   .sd-container {
     margin: auto;
     padding: 32px;
     width: 504px;
     height: 727px;
     border: solid 1px black;
-
+    background-color: white;
+    opacity: 1;
     .close-button {
       padding: 10px;
       width: 26px;
@@ -162,6 +164,65 @@
       width: 20px;
       height: 20px;
       background-image: url("./text.svg");
+    }
+  }
+  .sd-email-box {
+    padding: 11px;
+    width: 439px;
+    height: 46px;
+    margin-top: 15px;
+    border-radius: 2px;
+    box-shadow: none;
+    border: solid 1px #ebebeb;
+    font-size: 16px;
+    font-weight: 100;
+    &:focus {
+      border: solid 1px #008489;
+    }
+  }
+  .sd-first-name-box {
+    padding: 11px;
+    width: 439px;
+    height: 46px;
+    margin-top: 15px;
+    border-radius: 2px;
+    box-shadow: none;
+    border: solid 1px #ebebeb;
+    font-size: 16px;
+    font-weight: 100;
+    &:focus {
+      border: solid 1px #008489;
+    }
+  }
+  .sd-last-name-box {
+    padding: 11px;
+    width: 439px;
+    height: 46px;
+    margin-top: 15px;
+    border-radius: 2px;
+    box-shadow: none;
+    border: solid 1px #ebebeb;
+    font-size: 16px;
+    font-weight: 100;
+    &:focus {
+      border: solid 1px #008489;
+    }
+  }
+  .sd-password-box {
+    padding: 11px;
+    width: 439px;
+    height: 46px;
+    margin-top: 15px;
+    border-radius: 2px;
+    box-shadow: none;
+    border: solid 1px #ebebeb;
+    font-size: 16px;
+    font-weight: 100;
+    &:focus {
+      border: solid 1px #008489;
+    }
+    &:focus + .warn-container {
+      display: block;
     }
   }
   .warn-container {

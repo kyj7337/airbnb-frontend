@@ -1,0 +1,153 @@
+@import "Styles/Common.scss";
+
+.header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 85px;
+  background-color: white;
+  .header-container {
+    display: flex;
+    position: relative;
+
+    justify-content: space-between;
+
+    &__input {
+      max-width: 800px;
+      height: 48px;
+
+      display: flex;
+      .main-logo {
+        background-image: url("../../Images/mainIcon3.png");
+        background-size: cover;
+        height: 37px;
+        width: 38px;
+        margin: 24px;
+        text-align: right;
+      }
+      .innerContainer {
+        min-width: 700px;
+        display: flex;
+        margin-top: 15px;
+        margin-left: 15px;
+        justify-content: space-between;
+        height: 55px;
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 8px;
+        @media #{$device-large} {
+          display: none;
+        }
+
+        .header2-inputbox {
+          width: 90%;
+          text-align: center;
+          height: 48px !important;
+          // display: table-cell !important;
+          display: flex;
+          border-radius: 8px 0 0 8px !important;
+          padding: 14px;
+          .locationIcon {
+            background-image: url("../../Images/locationIcon.png");
+            background-size: 25px;
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+          }
+          input {
+            border: none;
+            font-size: 17px;
+            font-weight: 800;
+            padding-top: 6px;
+            width: 100%;
+          }
+        }
+
+        .searchBtn {
+          background-color: black;
+          width: 57px;
+          height: 40px;
+          padding: 8px 16px;
+          border-radius: 8px;
+          margin-top: 7px;
+          margin-right: 7px;
+
+          .searchIcon {
+            background-image: url("../../Images/searchIcon.png");
+            background-size: 25px;
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+    .navbar {
+      font-size: 14px;
+      justify-content: flex-end;
+      display: flex;
+
+      font-weight: 600;
+      color: black;
+      margin-right: 30px;
+
+      &__beforeSignIn {
+        display: flex;
+
+        &__joinHost {
+          padding-top: 35px;
+          span {
+            margin: 0 20px;
+          }
+        }
+        &__signup {
+          padding-top: 35px;
+          span {
+            margin: 0 20px;
+          }
+        }
+        &__signin {
+          padding-top: 35px;
+          span {
+            margin: 0 20px;
+          }
+        }
+      }
+
+      &__afterSignIn {
+        display: flex;
+        .logout {
+          padding-top: 35px;
+          span {
+            margin: 0 20px;
+          }
+        }
+
+        .defaultProfilePic {
+          margin-top: 10px;
+          margin-left: 15px;
+          display: inline-block;
+          height: 60px;
+          width: 60px;
+          vertical-align: top;
+          background-image: url("../../Images/defaultProfile.png");
+          background-size: 60px;
+        }
+      }
+    }
+  }
+
+  .navbar__beforeSignIn {
+    &__joinHost:hover,
+    &__signup:hover,
+    &__signin:hover {
+      border-bottom: 3px solid black;
+    }
+  }
+  .navbar__afterSignIn {
+    .logout:hover {
+      border-bottom: 3px solid black;
+    }
+  }
+}
