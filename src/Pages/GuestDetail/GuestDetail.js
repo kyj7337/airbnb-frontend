@@ -10,6 +10,7 @@ export class GuestDetail extends Component {
   };
   //fetch 내에서 주소만 바꿔주면됨
   componentDidMount() {
+    window.addEventListener("scroll", this.handlescrol);
     fetch(GuestDetailAPI, {
       method: "GET",
       headers: {
@@ -31,6 +32,9 @@ export class GuestDetail extends Component {
   }
   handlerclick = () => {
     this.props.history.push("/RoomsDetailPage?id=" + this.state.data.id);
+  };
+  handlescrol = () => {
+    this.setState({ location: window.scrollY < 600 });
   };
 
   render() {

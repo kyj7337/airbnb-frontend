@@ -11,8 +11,12 @@ export class DetailHeader extends Component {
     console.log(this.state);
   }
   out = () => {
+    this.alert();
     localStorage.removeItem("access_token");
     this.setState({ loginCheck: true });
+  };
+  alert = () => {
+    alert("로그아웃되었습니다.");
   };
   render() {
     return (
@@ -57,7 +61,7 @@ export class DetailHeader extends Component {
                 <span>호스트가 되어보세요</span>
               </div>
               <div onClick={this.out} className="logout">
-                <span>로그아웃</span>
+                <span onClick={this.alert}>로그아웃</span>
               </div>
 
               <a href="/GuestDetail" alt="">
