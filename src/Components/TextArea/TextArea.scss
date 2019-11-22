@@ -1,0 +1,22 @@
+.textarea-container {
+  margin-top: 50px;
+  .textarea-name {
+    margin: 10px;
+    font-size: 25px;
+    font-weight: 700;
+  }
+  .textarea-field {
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 60%;
+    height: 130px;
+    font-size: 18px;
+    outline: none;
+    border: 0;
+    border-bottom: solid 1px gray;
+    resize: none;
+    &:focus {
+      border-bottom: solid 5px#008489;
+    }
+  }
+}

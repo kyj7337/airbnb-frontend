@@ -7,6 +7,7 @@ export class SignUp extends Component {
     super();
     this.state = {};
   }
+
   handleClose = () => {
     this.props.history.push("/");
   };

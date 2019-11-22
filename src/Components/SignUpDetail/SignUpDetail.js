@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import "./SignUpDetail.scss";
+
 import { Link } from "react-router-dom";
+import DropDown from "../DropDown/DropDown";
+import "./SignUpDetail.scss";
 export class SignUpDetail extends Component {
   constructor() {
     super();
@@ -10,11 +12,14 @@ export class SignUpDetail extends Component {
       passwordVal: "",
       firstName: "",
       lastName: "",
-      fullDate: ""
+      fullDate: "",
+      year: [],
+      month: [],
+      day: []
     };
   }
   componentDidMount() {
-    fetch("", {
+    fetch("http://10.58.0.155:8002/account/year", {
       method: "get"
     })
       .then(res => {
@@ -22,29 +27,63 @@ export class SignUpDetail extends Component {
       })
       .then(res => {
         this.setState({
-          fullDate: res
+          year: res.year_list
         });
-      });
+      })
+      .then(
+        fetch("http://10.58.0.155:8002/account/month", {
+          method: "get"
+        })
+          .then(res => {
+            return res.json();
+          })
+          .then(res => {
+            this.setState({
+              month: res.month_list
+            });
+          })
+      )
+      .then(
+        fetch("http://10.58.0.155:8002/account/day", {
+          method: "get"
+        })
+          .then(res => {
+            return res.json();
+          })
+          .then(res => {
+            this.setState(
+              {
+                day: res.day_list
+              },
+              () => console.log(this.state)
+            );
+          })
+      );
   }
+  handleDrop = (id, tag, name) => {
+    this.setState({ [name]: id }, () => console.log(this.state, "드랍"));
+  };
   submitSignUp = e => {
     e.preventDefault();
-    fetch("http://10.58.1.8:8000/users/signup", {
+    fetch("http://10.58.0.155:8002/account/signup", {
       method: "post",
       body: JSON.stringify({
         email: this.state.emailVal,
         password: this.state.passwordVal,
         first_name: this.state.firstName,
         last_name: this.state.lastName,
-        birth_year: 3,
-        birth_month: 3,
-        birth_day: 3
+        birth_year: this.state.년,
+        birth_month: this.state.월,
+        birth_day: this.state.일
       })
     })
       .then(res => {
         return res.json();
       })
       .then(res => {
-        console.log(res);
+        if (res.message === "SUCCESS") {
+          this.props.history.push("/Login");
+        }
       });
   };
   handleEmail = e => {
@@ -70,6 +109,7 @@ export class SignUpDetail extends Component {
           hideMode: true
         });
   };
+
   faceBookLogin = () => {
     window.FB.login(
       function(response) {
@@ -90,7 +130,17 @@ export class SignUpDetail extends Component {
   };
 
   render() {
-    const { hideMode, emailVal, passwordVal, firstName, lastName } = this.state;
+    const {
+      hideMode,
+      emailVal,
+      passwordVal,
+      firstName,
+      lastName,
+      year,
+      month,
+      day
+    } = this.state;
+
     return (
       <div className="sd-page">
         <div className="sd-container">
@@ -110,6 +160,7 @@ export class SignUpDetail extends Component {
             <span className="or">또는</span>
             <div className="under-border"></div>
           </div>
+
           <div className="sd-email-box-container">
             <input
               onChange={this.handleEmail}
@@ -153,6 +204,7 @@ export class SignUpDetail extends Component {
               className={hideMode ? "password-image" : "password-image-on"}
             ></div>
           </div>
+
           <div className="warn-container">
             <div className="warn-protection-container">
               <svg className="x-mark" fill="red"></svg>
@@ -178,41 +230,45 @@ export class SignUpDetail extends Component {
             만 18세 이상의 성인만 회원으로 가입할 수 있습니다. 생일은 다른
             위앤비 이용자에게 공개되지 않습니다.
           </div>
+
           <div className="yy-mm-dd-container">
-            <select className="month" name="월" placeholder="월">
-              <option value="월">월</option>
-              <option value="1월">1월</option>
-              <option value="2월">2월</option>
-              <option value="3월">3월</option>
-              <option value="4월">4월</option>
-              <option value="5월">5월</option>
-              <option value="6월">6월</option>
-              <option value="7월">7월</option>
-              <option value="8월">8월</option>
-              <option value="9월">9월</option>
-              <option value="10월">10월</option>
-              <option value="11월">11월</option>
-              <option value="12월">12월</option>
-            </select>
-            <select className="day" name="일" placeholder="일">
-              <option value="일">일</option>
-              <option value="1일">1일</option>
-              <option value="2일">2일</option>
-            </select>
-            <select className="year">
-              <option value="년">년</option>
-              <option value="2019년">2019년</option>
-              <option value="2018년">2018년</option>
-              <option value="2017년">2017년</option>
-            </select>
+            <DropDown
+              none={{ display: "none" }}
+              margin={{ margin: "0px" }}
+              style={{ width: "100px", height: "40px", margin: "0" }}
+              drop={this.handleDrop}
+              data={month}
+              type={"month"}
+              name="월"
+            />
+            <DropDown
+              none={{ display: "none" }}
+              margin={{ margin: "0px" }}
+              style={{ width: "100px", height: "40px", margin: "0" }}
+              drop={this.handleDrop}
+              data={day}
+              type={"day"}
+              name="일"
+            />{" "}
+            <DropDown
+              none={{ display: "none" }}
+              margin={{ margin: "0px" }}
+              style={{ width: "100px", height: "40px", margin: "0" }}
+              drop={this.handleDrop}
+              data={year}
+              type={"year"}
+              name="년"
+            />
           </div>
           <div style={{ color: "#5c5c5c", fontSize: "13px" }}>
             에어비앤비의 마케팅 프로모션, 특별 할인 및 추천 여행 정보, 정책
             변경사항을 이메일로 보내드립니다.
           </div>
+
           <button onClick={this.submitSignUp} className="sign-up-submit">
             가입하기
           </button>
+
           <div className="denied-container">
             <input className="denied-check-box" type="checkbox" />
             <div className="denied-message">
