@@ -7,19 +7,19 @@ export class SignUp extends Component {
     super();
     this.state = {};
   }
-  faceBookLogin = () => {
-    window.FB.login(
-      function(response) {
-        // handle the response
-      },
-      { scope: "public_profile,email" }
-    );
-  };
+
+  // faceBookLogin = () => {
+  //   window.FB.login(
+  //     function(response) {
+  //       // handle the response
+  //     },
+  //     { scope: "public_profile,email" }
+  //   );
+  // };
 
   loginWithKakao = () => {
     window.Kakao.Auth.login({
       success: function(authObj) {
-        console.log(authObj);
         fetch("http://10.58.1.8:8000/users/kakao", {
           method: "get",
           headers: {

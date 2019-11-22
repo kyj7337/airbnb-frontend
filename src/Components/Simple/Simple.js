@@ -19,7 +19,8 @@ export class Simple extends Component {
       check_out_day,
       price,
       room_picture,
-      refund_desc
+      refund_desc,
+      confirmation
     } = this.props.children;
     // console.log("넘어와서", this.props);
     return (
@@ -41,6 +42,11 @@ export class Simple extends Component {
               <span>· &nbsp;숙소 예약 정책</span> : {refund_desc}
             </div>
             <div className="info2">자세히보기</div>
+            {this.props.children.confirmation ? (
+              <div className="true">예약완료</div>
+            ) : (
+              <div className="false">예약 대기중</div>
+            )}
           </div>
         </div>
       </div>
