@@ -54,17 +54,17 @@ export class HostRegiste extends Component {
       console.log("로드앤드", this.state.image)
     );
   }
-  //multiple selector append
+  //multiple selector append headers: {
+
   fileUpload(file) {
     console.log(file);
-    const url = "http://10.58.7.71:8000/registration/host_image";
+    const url = "http://10.58.0.155:8002/registration/host_image";
     const formData = new FormData();
     formData.append("host_image", file);
     const config = {
       headers: {
         "content-type": "multipart/form-data",
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMzl9.IPsnya-POvVfcE-9OavKtcALGPxy61uXJJ7nQaCSazc"
+        Authorization: localStorage.getItem("access_token")
       }
     };
 
@@ -149,20 +149,13 @@ export class HostRegiste extends Component {
   // };
 
   handleText = e => {
+    console.log(e.target.name);
     if (e.target.name === "hostName") {
       this.setState({ hostName: e.target.value });
     } else if (e.target.name === "hostIntro") {
       this.setState({ hostIntro: e.target.value });
     } else if (e.target.name === "relation") {
       this.setState({ relation: e.target.value });
-    } else if (e.target.value === "한국어") {
-      this.setState({ language: e.target.value }, () => {
-        console.log(this.state.language);
-      });
-    } else if (e.target.value === "영어") {
-      this.setState({ language: e.target.value }, () => {
-        console.log(this.state.language);
-      });
     }
     console.log(this.state);
   };
@@ -217,7 +210,7 @@ export class HostRegiste extends Component {
     }).open();
   };
   componentDidMount() {
-    fetch("http://10.58.7.71:8000/registration", {
+    fetch("http://10.58.0.155:8002/registration", {
       method: "get"
     })
       .then(res => {
@@ -225,32 +218,31 @@ export class HostRegiste extends Component {
       })
       .then(res => {
         console.log(res);
-        this.setState({ language: res.language_list }, () => {
-          console.log(this.state.language);
+        this.setState({ language: res.languages }, () => {
+          console.log(res.languages);
         });
       });
   }
   nextStep = () => {
     console.log(this.state);
-    fetch("http://10.58.7.71:8000/registration/host_info", {
+    fetch("http://10.58.0.155:8002/registration/host_info", {
       method: "post",
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMzl9.IPsnya-POvVfcE-9OavKtcALGPxy61uXJJ7nQaCSazc"
+        Authorization: localStorage.getItem("access_token")
       },
       body: JSON.stringify({
         nickname: this.state.hostName,
         intro: this.state.hostIntro,
         interaction: this.state.relation,
         country: this.state.address.address,
-        city: "",
-        language_list: this.state.language_list
+        language_list: this.state.사용가능언어
       })
     }).then(res => {
       if (res.status === 200) {
-        this.props.history.push("/hostRegisteStep2");
+        this.props.history.push("/hostRegiste/2");
       }
     });
+
     // .then(res => {
     //   console.log(res);
     // });
@@ -270,6 +262,9 @@ export class HostRegiste extends Component {
         console.log(this.state.value);
       }
     );
+  };
+  handleDrop = (id, tag, name) => {
+    this.setState({ [name]: id }, () => console.log(this.state, "드랍"));
   };
   render() {
     const languageTag = this.state.tag.map(el => {
@@ -317,7 +312,7 @@ export class HostRegiste extends Component {
             <div className="hr-host-nick-container">
               <div className="host-nick-name">호스트 이름 :</div>
               <input
-                onChange={this.handText}
+                onChange={this.handleText}
                 name="hostName"
                 type="text"
                 className="host-nick-name-field"
@@ -327,7 +322,7 @@ export class HostRegiste extends Component {
             <div className="host-intro-container">
               <div className="host-intro">호스트 소개 :</div>
               <textarea
-                onChange={this.handText}
+                onChange={this.handleText}
                 name="hostIntro"
                 type="text"
                 className="host-intro-field"
@@ -337,19 +332,20 @@ export class HostRegiste extends Component {
             <div className="host-relation-container">
               <div className="host-relation">게스트와의 교류 :</div>
               <textarea
-                onChange={this.handleData}
+                onChange={this.handleText}
                 name="relation"
                 className="host-relation-field"
                 placeholder="게스트와 어떤 종류의 교류를 원하시나요?"
               ></textarea>
             </div>
-            {this.state.language && (
-              <DropDown
-                name="사용가능 언어 "
-                data={this.state.language}
-                handle={this.handledata}
-              />
-            )}
+
+            <DropDown
+              name="사용가능언어"
+              data={this.state.language}
+              drop={this.handleDrop}
+              type={"language"}
+            />
+
             <div className="language-tag-container">
               {this.state.language && languageTag}
             </div>
@@ -382,7 +378,7 @@ export class HostRegiste extends Component {
             <div className="hr-button-container">
               <button className="hr-cancle-button">취소</button>
               <Link
-                to={"/hostRegiste/2"}
+                onClick={this.onFormSubmit}
                 type="submit"
                 className="hr-next-button"
               >

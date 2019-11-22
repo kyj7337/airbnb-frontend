@@ -57,11 +57,10 @@ export class HostRegisteStep2 extends Component {
     );
   };
   fileUpload = () => {
-    fetch("http://10.58.1.190:8002/registration/room_info", {
+    fetch("http://10.58.0.155:8002/registration/room_info", {
       method: "post",
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMzl9.IPsnya-POvVfcE-9OavKtcALGPxy61uXJJ7nQaCSazc"
+        Authorization: localStorage.getItem("access_token")
       },
       body: JSON.stringify({
         room_type_id: this.state.숙소유형,
@@ -86,7 +85,7 @@ export class HostRegisteStep2 extends Component {
       .then(res => {
         console.log(res.room_id);
         if (res.room_id) {
-          const url = `http://10.58.1.190:8002/registration/room_images?room_id=${res.room_id}`;
+          const url = `http://10.58.0.155:8002/registration/room_images?room_id=${res.room_id}`;
           const formData = new FormData();
           for (let i = 0; i < this.state.file.length; i++) {
             formData.append("room_images", this.state.file[i]);
@@ -94,13 +93,13 @@ export class HostRegisteStep2 extends Component {
           const config = {
             headers: {
               "content-type": "multipart/form-data",
-              Authorization:
-                "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMzl9.IPsnya-POvVfcE-9OavKtcALGPxy61uXJJ7nQaCSazc"
+              Authorization: localStorage.getItem("access_token")
             }
           };
 
           return post(url, formData, config);
         }
+        this.props.history.push("/hostAdmin");
       });
   };
   handlePlus = e => {
@@ -135,7 +134,7 @@ export class HostRegisteStep2 extends Component {
     this.setState({ load: upload }, () => console.log(upload));
   };
   componentDidMount() {
-    fetch("http://10.58.1.190:8002/registration/room_type", {
+    fetch("http://10.58.0.155:8002/registration/room_type", {
       method: "get"
     }) //숙소유형
       .then(res => {
@@ -148,7 +147,7 @@ export class HostRegisteStep2 extends Component {
         },
         () => console.log(this.state.roomType)
       );
-    fetch("http://10.58.1.190:8002/registration/bed_type", {
+    fetch("http://10.58.0.155:8002/registration/bed_type", {
       method: "get"
     }) //침대유형
       .then(res => {
@@ -158,7 +157,7 @@ export class HostRegisteStep2 extends Component {
         console.log(res);
         this.setState({ bedType: res.bed_types });
       });
-    fetch("http://10.58.1.190:8002/registration/policy", {
+    fetch("http://10.58.0.155:8002/registration/policy", {
       method: "get"
     }) //정책유형
       .then(res => {
@@ -168,7 +167,7 @@ export class HostRegisteStep2 extends Component {
         console.log(res);
         this.setState({ policy: res.refund_policies });
       });
-    fetch("http://10.58.1.190:8002/registration/rule", {
+    fetch("http://10.58.0.155:8002/registration/rule", {
       method: "get"
     }) //이용규칙
       .then(res => {
@@ -178,7 +177,7 @@ export class HostRegisteStep2 extends Component {
         console.log(res);
         this.setState({ rules: res.rules });
       });
-    fetch("http://10.58.1.190:8002/registration/amenities", {
+    fetch("http://10.58.0.155:8002/registration/amenities", {
       method: "get"
     }) //편의시설
       .then(res => {
