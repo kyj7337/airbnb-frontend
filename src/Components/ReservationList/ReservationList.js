@@ -10,7 +10,7 @@ export class ReservationList extends Component {
     };
   }
   handleStatus = () => {
-    fetch("http://10.58.1.221:8001/reservation/confirm", {
+    fetch("http://10.58.1.221:8000/reservation/confirm", {
       method: "post",
       headers: {
         Authorization:

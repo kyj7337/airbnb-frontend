@@ -10,7 +10,7 @@ export class HostAdmin extends Component {
     };
   }
   componentDidMount() {
-    fetch("http://10.58.1.221:8001/reservation/host", {
+    fetch("http://10.58.1.221:8000/reservation/host", {
       method: "get",
       headers: {
         Authorization:
