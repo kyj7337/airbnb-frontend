@@ -4,9 +4,11 @@ import Main from "./Pages/Main";
 import RoomsDetailPage from "./Pages/RoomsDetailPage";
 import SignUp from "./Pages/SignUp";
 import Login from "./Pages/Login";
-import "./Styles/Common.scss";
 import SignUpDetail from "./Components/SignUpDetail";
+import HostRegiste from "./Pages/HostRegiste";
+import HostRegisteStep2 from "./Pages/HostRegiste/HostRegisteStep2/";
 import GuestDetail from "./Pages/GuestDetail";
+import "./Styles/Common.scss";
 export class Routes extends React.Component {
   render() {
     return (
@@ -17,6 +19,8 @@ export class Routes extends React.Component {
           <Route exact path="/Login" component={Login} />
           <Route exact path="/SignUp" component={SignUp} />
           <Route exact path="/SignUpDetail" component={SignUpDetail} />
+          <Route exact path="/HostRegiste" component={HostRegiste} />
+          <Route exact path="/HostRegiste/2" component={HostRegisteStep2} />
           <Route exact path="/GuestDetail" component={GuestDetail} />
         </Switch>
       </Router>
