@@ -99,6 +99,7 @@ export class HostRegisteStep2 extends Component {
 
           return post(url, formData, config);
         }
+        this.props.history.push("/hostAdmin");
       });
   };
   handlePlus = e => {

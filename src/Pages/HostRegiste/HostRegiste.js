@@ -242,6 +242,7 @@ export class HostRegiste extends Component {
         this.props.history.push("/hostRegiste/2");
       }
     });
+
     // .then(res => {
     //   console.log(res);
     // });
