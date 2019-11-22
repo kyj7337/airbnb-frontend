@@ -8,6 +8,7 @@ import HostAdmin from "./Pages/HostAdmin";
 import "./Styles/Common.scss";
 
 import SignUpDetail from "./Components/SignUpDetail";
+import ListPage from "./Pages/ListPage/ListPage";
 import HostRegiste from "./Pages/HostRegiste";
 import HostRegisteStep2 from "./Pages/HostRegiste/HostRegisteStep2/";
 import GuestDetail from "./Pages/GuestDetail";
@@ -18,6 +19,7 @@ export class Routes extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Main} />
+          <Route exact path="/list" component={ListPage} />
           <Route exact path="/RoomsDetailPage" component={RoomsDetailPage} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/SignUp" component={SignUp} />
