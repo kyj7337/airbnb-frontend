@@ -6,7 +6,7 @@ export class FixBar extends Component {
     navbar: true
   };
   handleScroll = () => {
-    this.setState({ Navbar: window.scrollY < 600 });
+    this.setState({ Navbar: window.scrollY < 450 });
   };
 
   componentDidMount() {

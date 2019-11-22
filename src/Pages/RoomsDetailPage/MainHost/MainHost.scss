@@ -32,6 +32,9 @@
     margin-right: 6px;
     width: 150px;
     height: 85px;
+    @media #{$device-large} {
+      right: -70px;
+    }
     .host-pic-image {
       border: 1px solid #ffffff;
       border-radius: 30px;

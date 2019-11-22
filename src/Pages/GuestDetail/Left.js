@@ -16,7 +16,7 @@ export class Left extends Component {
     this.setState({ location: window.scrollY < 600 });
   };
   render() {
-    console.log("left", this.state.location);
+    // console.log("left", this.state.location);
     const normal = "left-wrapper";
     const fixed = "left-wrapper-fix";
     const { location } = this.state;
