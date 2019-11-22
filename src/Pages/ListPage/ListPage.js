@@ -6,21 +6,23 @@ import RoomListGoogleMap from "./RoomListGoogleMap";
 
 export class ListPage extends Component {
   state = {
-    roomListArr: []
+    roomListArr: [],
+    mapLat: null,
+    mapLng: null
   };
   componentDidMount() {
     const id = this.props.history.location.search.split("=")[1];
 
-    fetch(`http://10.58.1.221:8000/rooms/cities/${id}`, {})
+    fetch(`http://10.58.1.221:8000/rooms/cities/${id}?limit=10`, {})
       .then(res => res.json())
       .then(
         res => {
           console.log("res", res);
           this.setState(
             {
-              roomListArr: res["searched_results"]
-              // mapLat: Number(res.lat),
-              // mapLng: Number(res["searched_results"].lng)
+              roomListArr: res["searched_results"],
+              mapLat: parseFloat(res["searched_results"][0].lat),
+              mapLng: parseFloat(res["searched_results"][0].lng)
             },
             () => {
               //console.log(res);
@@ -37,8 +39,8 @@ export class ListPage extends Component {
   };
 
   render() {
-    console.log("여기", this.state);
     const viewList = this.state.roomListArr.map(el => {
+      console.log("여기", el.lat);
       return (
         <RoomList
           clickList={this.handlerclick}
@@ -73,10 +75,7 @@ export class ListPage extends Component {
           {viewList}
         </div>
         <div className="listPageRightSide">
-          <RoomListGoogleMap
-          // lat={this.state.roomsListArr.lat}
-          // lng={this.state.roomsListArr.lng}
-          />
+          <RoomListGoogleMap lat={this.state.mapLat} lng={this.state.mapLng} />
         </div>
       </div>
     );

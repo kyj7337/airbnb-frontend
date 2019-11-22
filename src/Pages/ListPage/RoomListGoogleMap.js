@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 
 export class RoomListGoogleMap extends Component {
+  componentDidMount() {
+    const center = [];
+    center["lat"] = this.props.lat;
+    center["lng"] = this.props.lng;
+    this.setState({ center: center }, () => {});
+  }
   render() {
     const mapStyles = {
       width: "100%",
@@ -15,9 +21,13 @@ export class RoomListGoogleMap extends Component {
           google={this.props.google}
           zoom={8}
           style={mapStyles}
-          // initialCenter={{ lat: this.props.lat, lng: this.props.lng }}
+          initialCenter={{ lat: this.props.lat, lng: this.props.lng }}
+          center={{ lat: this.props.lat, lng: this.props.lng }}
         >
-          <Marker position={{ lat: 5, lng: 50 }} />
+          {/* {this.state.center.map(e => {
+            <Marker position={ lat: e.lat, lng: e.lng } />;
+          })} */}
+          <Marker position={{ lat: this.props.lat, lng: this.props.lng }} />
         </Map>
       </div>
     );
