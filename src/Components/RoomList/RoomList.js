@@ -16,6 +16,10 @@ export class RoomList extends Component {
     roomPrice: "32,000"
   };
 
+  handleClick = () => {
+    const { _id } = this.props;
+    this.props.clickList(_id);
+  };
   render() {
     // <RoomList
     //   //clickPhotoMenu={this.handlePhotoMenu}
@@ -30,7 +34,7 @@ export class RoomList extends Component {
     // />;
     console.log("dll", this.props);
     return (
-      <div className="listPageContainer">
+      <div onClick={this.handleClick} className="listPageContainer">
         <div className="listContainer">
           <img
             className="listImg"
@@ -57,7 +61,7 @@ export class RoomList extends Component {
             </div>
             <div className="optionInfo">{this.state.etcOption}</div>
             <div className="roomPriceInfo">
-              ₩<span>{this.state.roomPrice}</span> /1박
+              ₩<span>{this.props.roomPrice}</span> /1박
             </div>
           </div>
         </div>

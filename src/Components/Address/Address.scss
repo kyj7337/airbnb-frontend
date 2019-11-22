@@ -1,0 +1,28 @@
+.address-container {
+  .host-address {
+    margin: 60px 10px;
+  }
+  .inner-address-container {
+    display: flex;
+    align-items: center;
+    #address-search-box {
+      margin: 10px 10px;
+      width: 300px;
+      height: 40px;
+      font-size: 17px;
+      padding-left: 10px;
+    }
+    #address-search-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 40px;
+      border: solid 1px rgb(202, 202, 202);
+      font-size: 16px;
+      border-radius: 2px;
+      font-weight: 400;
+      color: rgb(128, 126, 126);
+    }
+  }
+}

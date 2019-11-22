@@ -37,6 +37,9 @@
         height: 55px;
         border-radius: 8px;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 8px;
+        @media #{$device-large} {
+          display: none;
+        }
 
         .header2-inputbox {
           width: 90%;

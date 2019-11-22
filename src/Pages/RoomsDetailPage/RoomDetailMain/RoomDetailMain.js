@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { DateRangePicker } from "react-dates";
 import { withRouter } from "react-router-dom";
-import RoomDetailMockUp from "./RoomDetailMockup";
+// import RoomDetailMockUp from "./RoomDetailMockup";
 import FixBar from "Components/FixBar";
 import MainHost from "Pages/RoomsDetailPage/MainHost";
 import Room from "Pages/RoomsDetailPage/Room";
@@ -13,12 +13,14 @@ import Cancel from "Pages/RoomsDetailPage/Cancel";
 import Footer from "Components/Footer";
 import Payment from "Components/Payment";
 import { RoomDetailAPI } from "config.js";
+import moment from "moment";
 import "react-dates/initialize";
 import "./Calendercss.scss";
 import "./RoomDetailMain.scss";
 
 export class RoomDetailMain extends Component {
   state = {
+    calender: true,
     button: false,
     start: null,
     end: null,
@@ -28,7 +30,11 @@ export class RoomDetailMain extends Component {
     lng: 14
   };
 
+  handleScroll = () => {
+    this.setState({ calender: window.scrollY < 450 });
+  };
   componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
     fetch(RoomDetailAPI + this.props.location.search.split("=")[1], {
       method: "get"
     })
@@ -43,9 +49,10 @@ export class RoomDetailMain extends Component {
           }
         );
       });
-    // console.log("------------------props----------", this.props);
-    // console.log(this.props.location.search.split("=")[1]);
-    // console.log(RoomDetailAPI + this.props.location.search.split("=")[1]);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
   }
 
   BtnClick = () => {
@@ -127,7 +134,14 @@ export class RoomDetailMain extends Component {
       });
     }
   };
-
+  // tobackend = () => {
+  //   fetch("http://asdf", {
+  //     method: "post",
+  //     body: {}
+  //   });
+  // };
+  isOutsideRange = day =>
+    day.isAfter(moment()) || day.isBefore(moment().subtract(30, "days"));
   render() {
     let off = "payment";
     let on = "not-payment";
@@ -140,7 +154,8 @@ export class RoomDetailMain extends Component {
       Startmonth,
       Endmonth,
       cleaning_fee,
-      price
+      price,
+      calender
     } = this.state;
     const {
       maxpeople,
@@ -160,12 +175,25 @@ export class RoomDetailMain extends Component {
       longitude,
       warning_list,
       refund_desc,
-      refund_policy
+      refund_policy,
+      city_name,
+      id,
+      pic1
     } = this.state.data;
+    // console.log(this.state);
+    let disappear = "calender-disappear";
+    let appear = "calender";
+    let btndisappear = "button-wrapper-disappear";
+    let btnappear = "button-wrapper";
+
+    // const BAD_DATES = [moment(), moment().add(2, "days")];
+    // const isDayBlocked = day =>
+    //   BAD_DATES.filter(d => d.isSame(day, "day")).length > 0;
+
     return (
       <div>
         <FixBar />
-        <div className="button-wrapper">
+        <div className={calender ? btndisappear : btnappear}>
           <button className={button ? on : non} onClick={this.BtnClick}>
             결제하기
           </button>
@@ -184,12 +212,17 @@ export class RoomDetailMain extends Component {
               E_year={end[3]}
               E_month={Endmonth}
               E_day={end[2]}
+              room_id={id}
+              pic1={pic1}
             />
           ) : null}
         </div>
 
         <div className="main-wrapper">
-          <div className="calender">
+          <div className={calender ? disappear : appear}>
+            <div className="cal-text">
+              We & B 에서 숙소, 호텔 을 예약하세요.
+            </div>
             <DateRangePicker
               startDate={this.state.startDate}
               startDateId="your_unique_start_date_id"
@@ -200,9 +233,24 @@ export class RoomDetailMain extends Component {
               }
               focusedInput={this.state.focusedInput}
               onFocusChange={focusedInput => this.setState({ focusedInput })}
-              startDatePlaceholderText="체크인"
-              endDatePlaceholderText="체크아웃"
-              // 지수님 데이터 날짜가 체크인 체크아웃에 11/29/2019로 표현되게 만들기, 그리고 실제로 그 값이 state에 저장되어 있어야함
+              startDatePlaceholderText="&nbsp;&nbsp;&nbsp;&nbsp;체크인"
+              endDatePlaceholderText="&nbsp;&nbsp;&nbsp;체크아웃"
+              // minimumNights="2"
+              monthFormat="YYYY년MM월"
+              displayFormat="MM월 DD일"
+              // disableScroll="false"
+              // disabled="startDate, endDate"
+              // isDayBlocked={isDayBlocked}
+              // transitionDuration="3000"
+              // enableOutsideDays="false"
+              // isOutsideRange={this.isOutsideRange}
+              // daySize={50}
+              // isDayHighlighted=""
+            />
+            <img
+              className="paper"
+              src="https://blog.atairbnb.com/wp-content/uploads/2017/07/Calendar_Updates.png?resize=600%2C900"
+              alt=""
             />
           </div>
           <MainHost
@@ -212,6 +260,7 @@ export class RoomDetailMain extends Component {
             maxpeople={maxpeople}
             bed={bed}
             bathroom={bathroom}
+            cityname={city_name}
           />
           <Room roomtype={roomtype} roomtypedesc={roomtypedesc} />
           <div className="room-story-wrapper">

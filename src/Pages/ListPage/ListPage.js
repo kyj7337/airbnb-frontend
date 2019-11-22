@@ -32,13 +32,16 @@ export class ListPage extends Component {
         }
       );
   }
+  handlerclick = id => {
+    this.props.history.push(`/RoomsDetailPage?id=${id}`);
+  };
 
   render() {
     console.log("여기", this.state);
     const viewList = this.state.roomListArr.map(el => {
       return (
         <RoomList
-          //clickPhotoMenu={this.handlePhotoMenu}
+          clickList={this.handlerclick}
           _id={el.room_id}
           location={el.room_city}
           hotelInfo={el.room_title}
@@ -48,6 +51,7 @@ export class ListPage extends Component {
           img={el.pic1}
           lat={el.lat}
           lng={el.lng}
+          roomPrice={el.price}
         />
       );
     });

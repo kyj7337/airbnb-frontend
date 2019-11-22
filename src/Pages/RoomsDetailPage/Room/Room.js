@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import RoomDetailMockUp from "Pages/RoomsDetailPage/RoomDetailMain/RoomDetailMockup";
+// import RoomDetailMockUp from "Pages/RoomsDetailPage/RoomDetailMain/RoomDetailMockup";
 import "./Room.scss";
 
 export class Room extends Component {

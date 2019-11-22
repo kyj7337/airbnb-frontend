@@ -1,8 +1,76 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
 import "./SignUpDetail.scss";
-
+import { Link, withRouter } from "react-router-dom";
 export class SignUpDetail extends Component {
+  constructor() {
+    super();
+    this.state = {
+      hideMode: true,
+      emailVal: "",
+      passwordVal: "",
+      firstName: "",
+      lastName: "",
+      fullDate: ""
+    };
+  }
+  componentDidMount() {
+    fetch("", {
+      method: "get"
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        this.setState({
+          fullDate: res
+        });
+      });
+  }
+  submitSignUp = e => {
+    e.preventDefault();
+    fetch("http://10.58.1.8:8000/users/signup", {
+      method: "post",
+      body: JSON.stringify({
+        email: this.state.emailVal,
+        password: this.state.passwordVal,
+        first_name: this.state.firstName,
+        last_name: this.state.lastName,
+        birth_year: 3,
+        birth_month: 3,
+        birth_day: 3
+      })
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        console.log(res);
+      });
+  };
+  handleEmail = e => {
+    this.setState({ emailVal: e.target.value });
+  };
+  handlePassword = e => {
+    this.setState({ passwordVal: e.target.value });
+  };
+  handleFirstName = e => {
+    this.setState({ firstName: e.target.value });
+  };
+  handleLastName = e => {
+    this.setState({
+      lastName: e.target.value
+    });
+  };
+  handlehide = e => {
+    this.state.hideMode
+      ? this.setState({
+          hideMode: false
+        })
+      : this.setState({
+          hideMode: true
+        });
+  };
+
   faceBookLogin = () => {
     window.FB.login(
       function(response) {
@@ -23,6 +91,8 @@ export class SignUpDetail extends Component {
   };
 
   render() {
+    const { hideMode, emailVal, passwordVal, firstName, lastName } = this.state;
+
     return (
       <div className="sd-page">
         <div className="sd-container">
@@ -42,26 +112,51 @@ export class SignUpDetail extends Component {
             <span className="or">또는</span>
             <div className="under-border"></div>
           </div>
-          <input
-            className="sd-email-box"
-            placeholder="이메일주소"
-            type="text"
-          />
-          <input
-            className="sd-first-name-box"
-            placeholder="이름(예:길동)"
-            type="text"
-          />
-          <input
-            className="sd-last-name-box"
-            placeholder="성(예:홍)"
-            type="text"
-          />
-          <input
-            className="sd-password-box"
-            placeholder="비밀번호 설정"
-            type="text"
-          />
+
+          <div className="sd-email-box-container">
+            <input
+              onChange={this.handleEmail}
+              className="sd-email-box"
+              placeholder="이메일주소"
+              type="text"
+              value={emailVal}
+            />
+            <div className="sd-email-image"></div>
+          </div>
+          <div className="sd-first-container">
+            <input
+              onChange={this.handleFirstName}
+              className="sd-first-name-box"
+              placeholder="이름(예:길동)"
+              type="text"
+              value={firstName}
+            />
+            <div className="first-image"></div>
+          </div>
+          <div className="sd-last-container">
+            <input
+              onChange={this.handleLastName}
+              className="sd-last-name-box"
+              placeholder="성(예:홍)"
+              type="text"
+              value={lastName}
+            />
+            <div className="last-image"></div>
+          </div>
+          <div className="password-box-container">
+            <input
+              onChange={this.handlePassword}
+              className="sd-password-box"
+              placeholder="비밀번호 설정"
+              type={hideMode ? "password" : "text"}
+              value={passwordVal}
+            />
+            <div
+              onClick={this.handlehide}
+              className={hideMode ? "password-image" : "password-image-on"}
+            ></div>
+          </div>
+
           <div className="warn-container">
             <div className="warn-protection-container">
               <svg className="x-mark" fill="red"></svg>
@@ -119,7 +214,11 @@ export class SignUpDetail extends Component {
             에어비앤비의 마케팅 프로모션, 특별 할인 및 추천 여행 정보, 정책
             변경사항을 이메일로 보내드립니다.
           </div>
-          <button className="sign-up-submit">가입하기</button>
+
+          <button onClick={this.submitSignUp} className="sign-up-submit">
+            가입하기
+          </button>
+
           <div className="denied-container">
             <input className="denied-check-box" type="checkbox" />
             <div className="denied-message">
