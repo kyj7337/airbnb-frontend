@@ -7,15 +7,17 @@ export class RoomListGoogleMap extends Component {
       width: "100%",
       height: "100%"
     };
+    console.log(typeof this.props.lat);
+
     return (
       <div>
         <Map
           google={this.props.google}
           zoom={8}
           style={mapStyles}
-          initialCenter={{ lat: 0, lng: 0 }}
+          // initialCenter={{ lat: this.props.lat, lng: this.props.lng }}
         >
-          <Marker position={{ lat: 0, lng: 0 }} />
+          <Marker position={{ lat: 5, lng: 50 }} />
         </Map>
       </div>
     );

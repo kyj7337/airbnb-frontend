@@ -2,20 +2,20 @@ import React, { Component } from "react";
 // import { withRouter } from "react-router-dom";
 
 export class PhotoMenu extends Component {
-  // handleclick = () => {
-  //   this.props.history.push("/RoomDetailPage?id=346");
-  // };
+  handleClick = () => {
+    const { _id } = this.props;
+    this.props.clickPhotoMenu(_id);
+  };
   render() {
     console.log("이거", this.props);
-    const { location, superHost, reviewNum, hotelInfo, img, id } = this.props;
+    const { location, superHost, reviewNum, hotelInfo, img } = this.props;
     return (
-      <div id={id} className="recommendByReview__photoContainer">
+      <div
+        onClick={this.handleClick}
+        className="recommendByReview__photoContainer"
+      >
         <div className="recommendByReview__photoContainer__menu">
-          <img
-            src={img}
-            onClick={this.handleclick}
-            alt="recommend by review pictures"
-          />
+          <img src={img} alt="recommend by review pictures" />
           <div className="hotelInfo">
             <div className="hotelInfo__Bar">
               <span className="superhost">{superHost}</span>

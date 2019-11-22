@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 export class ViewMore extends Component {
+  // handleClick = () => {
+  //   const { _id } = this.props;
+  //   this.props.clickPhotoMenu(_id);
+  // };
   render() {
     return (
       <div className="viewMore">

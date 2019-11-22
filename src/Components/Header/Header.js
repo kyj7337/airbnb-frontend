@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Header.scss";
 // /import emptyImg from "Images/profileImg.png"
+import { withRouter } from "react-router-dom";
 
 export class Header extends Component {
   state = {
@@ -45,4 +46,4 @@ export class Header extends Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);

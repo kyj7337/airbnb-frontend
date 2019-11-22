@@ -32,15 +32,24 @@ export class Main extends Component {
     testSuperHost: "슈퍼호스트",
     testReviewNum: 4.93,
     viewMore: "2,000",
-
     testRecommendTitle3: "100개 이상",
     listMenu: ""
   };
-
-  handleRecommendWorldClick = () => {
-    this.props.history.push("/RoomDetailPage?id=346");
+  // clickedViewMore = () => {
+  //   this.history.push(`/list?id=${id}`);
+  // };
+  handleRecommendWorldClick = id => {
+    console.log(id);
+    this.props.history.push(`/list?id=${id}`);
   };
-
+  handlePhotoMenu = id => {
+    console.log(id);
+    this.props.history.push(`/RoomsDetailPage?id=${id}`);
+  };
+  handleBiggerPhotoMenu = id => {
+    console.log(id);
+    this.props.history.push(`/RoomsDetailPage?id=${id}`);
+  };
   handleOnChange = e => {
     this.setState({ inputLocation: e.target.value }, () => {
       //console.log(this.state.inputLocation);
@@ -207,7 +216,7 @@ export class Main extends Component {
     const recommendMenu = recommendData.map(el => (
       <RecommendWorld
         clicked={this.handleRecommendWorldClick}
-        id={el.id}
+        _id={el.id}
         img={el.src}
         location={el.location}
       />
@@ -216,10 +225,11 @@ export class Main extends Component {
     const photoMenuTest = this.state.result.map(el => {
       return (
         <PhotoMenu
-          location={testLocation}
+          clickPhotoMenu={this.handlePhotoMenu}
+          location={el.city}
           superHost={testSuperHost}
           reviewNum={testReviewNum}
-          id={el.id}
+          _id={el.id}
           hotelInfo={el.title}
           img={el.pic1}
         />
@@ -239,10 +249,11 @@ export class Main extends Component {
     //   );
     // });
 
-    const listMenuFirst = this.state.listRoomsArray1.map(el => {
+    const listMenuFirst = this.state.listRoomsArray1.map((el, index) => {
       return (
         <PhotoMenu
-          id={el.room_id}
+          clickPhotoMenu={this.handlePhotoMenu}
+          _id={el.room_id}
           location={el.room_city}
           superHost={testSuperHost}
           hotelInfo={el.room_title}
@@ -254,7 +265,8 @@ export class Main extends Component {
     const listMenuSecond = this.state.listRoomsArray2.map(el => {
       return (
         <PhotoMenu
-          id={el.room_id}
+          clickPhotoMenu={this.handlePhotoMenu}
+          _id={el.room_id}
           location={el.room_city}
           superHost={testSuperHost}
           hotelInfo={el.room_title}
@@ -266,7 +278,8 @@ export class Main extends Component {
     const highReviewP = this.state.recommendInfo.map(el => {
       return (
         <BiggerPhotoMenu
-          id={el.room_id}
+          clickBiggerPhotoMenu={this.handleBiggerPhotoMenu}
+          _id={el.room_id}
           location={el.room_city}
           superHost={testSuperHost}
           hotelInfo={el.room_title}
@@ -365,8 +378,6 @@ export class Main extends Component {
             {this.state.result && photoMenuTest}
           </div>
         </div>
-
-        {/* <button onClick={this.testOnClick}>testButton</button> */}
       </div>
     );
   }

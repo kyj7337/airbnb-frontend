@@ -15,13 +15,26 @@ export class RoomList extends Component {
     etcOption: "무선인터넷 • 난방 • 헤어드라이어 • 주방",
     roomPrice: "32,000"
   };
+
   render() {
+    // <RoomList
+    //   //clickPhotoMenu={this.handlePhotoMenu}
+    //   _id={el.room_id}
+    //   location={el.room_city}
+    //   hotelInfo={el.room_title}
+    //   pplNum={el.person}
+    //   washroomNum={el.bathroom}
+    //   img={el.pic1}
+    //   lat={el.lat}
+    //   lng={el.lng}
+    // />;
+    console.log("dll", this.props);
     return (
       <div className="listPageContainer">
         <div className="listContainer">
           <img
             className="listImg"
-            src={this.state.img}
+            src={this.props.img}
             alt="listPage-roomsImg"
           />
           <div className="rightSideInfo">
@@ -36,11 +49,11 @@ export class RoomList extends Component {
               </div>
             </div>
 
-            <div className="roomTitle">{this.state.roomTitle}</div>
+            <div className="roomTitle">{this.props.hotelInfo}</div>
             <div className="insideInfo">
-              인원 {this.state.pplNum}명 • 원룸 • 침대 {this.state.bedNum}개 •
+              인원 {this.props.pplNum}명 • 원룸 • 침대 {this.props.bedNum}개 •
               욕실
-              {this.state.washroomNum}개
+              {this.props.washroomNum}개
             </div>
             <div className="optionInfo">{this.state.etcOption}</div>
             <div className="roomPriceInfo">
