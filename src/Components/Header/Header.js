@@ -4,6 +4,7 @@ import { isuserlogin } from "config.js";
 import { Link } from "react-router-dom";
 
 // /import emptyImg from "Images/profileImg.png"
+import { withRouter } from "react-router-dom";
 
 export class Header extends Component {
   state = {
@@ -37,7 +38,6 @@ export class Header extends Component {
             </div>
             <div className="navbar__beforeSignIn__signup">
               <a href="/SignUp">
-                {" "}
                 <span>회원가입</span>
               </a>
             </div>
@@ -53,7 +53,9 @@ export class Header extends Component {
             }
           >
             <div className="navbar__beforeSignIn__joinHost">
-              <span>호스트가 되어보세요</span>
+              <a href="/HostRegiste">
+                <span>호스트가 되어보세요</span>
+              </a>
             </div>
 
             <div onClick={this.out} className="logout">
@@ -67,4 +69,4 @@ export class Header extends Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);

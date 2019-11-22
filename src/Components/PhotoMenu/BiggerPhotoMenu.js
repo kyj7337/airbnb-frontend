@@ -1,20 +1,20 @@
 import React, { Component } from "react";
-// import { withRouter } from "react-router-dom";
 
-export class PhotoMenu extends Component {
+export class BiggerPhotoMenu extends Component {
   handleClick = () => {
     const { _id } = this.props;
-    this.props.clickPhotoMenu(_id);
+    this.props.clickBiggerPhotoMenu(_id);
   };
+
   render() {
-    console.log("이거", this.props);
-    const { location, superHost, reviewNum, hotelInfo, img } = this.props;
+    const { location, superHost, reviewNum, hotelInfo, img, id } = this.props;
+    //const { randNum } = parseFloat(Math.random().toFixed(2)) + 4;
     return (
       <div
         onClick={this.handleClick}
-        className="recommendByReview__photoContainer"
+        className="recommendByReview__biggerPhotoContainer"
       >
-        <div className="recommendByReview__photoContainer__menu">
+        <div className="recommendByReview__biggerPhotoContainer__menu">
           <img src={img} alt="recommend by review pictures" />
           <div className="hotelInfo">
             <div className="hotelInfo__Bar">
@@ -22,8 +22,8 @@ export class PhotoMenu extends Component {
               <div className="location">{location}</div>
               <span className="starReview">
                 <div className="starReview__redStar" />
-                {reviewNum}
-                {/* {Number(Math.random().toFixed(2)) + 4} */}
+                {/* {reviewNum} */}
+                {Number(Math.random().toFixed(2)) + 4}
               </span>
             </div>
             <div className="hotelInfo__title">{hotelInfo}</div>
@@ -34,4 +34,4 @@ export class PhotoMenu extends Component {
   }
 }
 
-export default PhotoMenu;
+export default BiggerPhotoMenu;
