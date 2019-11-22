@@ -43,13 +43,22 @@ export class DetailHeader extends Component {
               }
             >
               <div className="navbar__beforeSignIn__joinHost">
-                <span>호스트가 되어보세요</span>
+                <a href="/HostRegiste" alt="">
+                  {" "}
+                  <span>호스트가 되어보세요</span>
+                </a>
               </div>
+
               <div className="navbar__beforeSignIn__signup">
-                <span>회원가입</span>
+                <a href="/Signup">
+                  <span>회원가입</span>{" "}
+                </a>
               </div>
+
               <div className="navbar__beforeSignIn__signin">
-                <span>로그인</span>
+                <a href="/Login">
+                  <span>로그인</span>
+                </a>
               </div>
             </div>
             <div
@@ -58,7 +67,9 @@ export class DetailHeader extends Component {
               }
             >
               <div className="navbar__beforeSignIn__joinHost">
-                <span>호스트가 되어보세요</span>
+                <a href="/HostRegiste">
+                  <span>호스트가 되어보세요</span>
+                </a>
               </div>
               <div onClick={this.out} className="logout">
                 <span onClick={this.alert}>로그아웃</span>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Header.scss";
 import { isuserlogin } from "config.js";
+import { Link } from "react-router-dom";
 
 // /import emptyImg from "Images/profileImg.png"
 
@@ -16,6 +17,7 @@ export class Header extends Component {
     localStorage.removeItem("access_token");
     this.setState({ loginCheck: true });
   };
+
   render() {
     return (
       <div className="header-container">
@@ -29,13 +31,20 @@ export class Header extends Component {
             }
           >
             <div className="navbar__beforeSignIn__joinHost">
-              <span>호스트가 되어보세요</span>
+              <a href="/HostRegiste">
+                <span>호스트가 되어보세요</span>
+              </a>
             </div>
             <div className="navbar__beforeSignIn__signup">
-              <span>회원가입</span>
+              <a href="/SignUp">
+                {" "}
+                <span>회원가입</span>
+              </a>
             </div>
             <div className="navbar__beforeSignIn__signin">
-              <span>로그인</span>
+              <a href="/Login">
+                <span>로그인</span>
+              </a>
             </div>
           </div>
           <div
@@ -46,6 +55,7 @@ export class Header extends Component {
             <div className="navbar__beforeSignIn__joinHost">
               <span>호스트가 되어보세요</span>
             </div>
+
             <div onClick={this.out} className="logout">
               <span>로그아웃</span>
             </div>
