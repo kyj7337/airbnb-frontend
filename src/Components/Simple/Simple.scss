@@ -1,6 +1,6 @@
 .simple-wrapper {
   margin: 15px 0px;
-  max-width: 1000px;
+  max-width: 950px;
   height: 250px;
   border: 1px solid #eeeeee;
   border-radius: 16px;
@@ -40,6 +40,19 @@
         margin-left: 20px;
         font-weight: 600;
         color: #008489;
+        font-size: 17px;
+      }
+      .true,
+      .false {
+        margin-top: -20px;
+        margin-left: 20px;
+        font-weight: 600;
+        color: #ff5a5f;
+        float: right;
+        font-size: 17px;
+      }
+      .false {
+        color: #484848;
       }
     }
   }
