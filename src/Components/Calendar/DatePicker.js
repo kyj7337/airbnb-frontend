@@ -58,6 +58,9 @@ class DatePicker extends Component {
           onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
           startDatePlaceholderText="체크인"
           endDatePlaceholderText="체크아웃"
+          minimumNights="1"
+          monthFormat="YYYY년MM월"
+          displayFormat="MM월 DD일"
         />
         {/* <button onClick={this.calendarCheck}>확인용</button> */}
       </div>

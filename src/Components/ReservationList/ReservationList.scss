@@ -1,0 +1,33 @@
+.hostadmin-rooms-list {
+  display: flex;
+  margin: 30px 0;
+  width: 100%;
+  height: 320px;
+  box-shadow: 1px 2px 2px gray;
+  border-radius: 5px;
+
+  .hostadmin-image {
+    width: 40%;
+    height: 100%;
+
+    background-image: url("https://freshome.com/wp-content/uploads/2015/07/online-virtual-room-programs-roomstyler-2.png");
+    background-size: 130%;
+    background-repeat: no-repeat;
+  }
+  .hostadmin-room-info-container {
+    width: 60%;
+    height: 20px;
+
+    padding: 40px 100px;
+    .hostadmin-room-name-container {
+      display: flex;
+      align-items: center;
+      width: 40%;
+      height: 30px;
+      font-size: 20px;
+    }
+  }
+}
+.status {
+  color: #008489;
+}
