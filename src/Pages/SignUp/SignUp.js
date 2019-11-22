@@ -7,6 +7,9 @@ export class SignUp extends Component {
     super();
     this.state = {};
   }
+  handleClose = () => {
+    this.props.history.push("/");
+  };
   faceBookLogin = () => {
     window.FB.login(
       function(response) {
@@ -59,7 +62,7 @@ export class SignUp extends Component {
     return (
       <div className="sign-up-page">
         <div className="sign-up-container">
-          <button className="close-button"></button>
+          <button className="close-button" onClick={this.handleClose}></button>
           <div className="kakao-login" onClick={this.loginWithKakao}></div>
           <div className="facebook-login" onClick={this.faceBookLogin}></div>
           <div className="or-container">
