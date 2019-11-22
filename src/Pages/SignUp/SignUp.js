@@ -8,14 +8,17 @@ export class SignUp extends Component {
     this.state = {};
   }
 
-  // faceBookLogin = () => {
-  //   window.FB.login(
-  //     function(response) {
-  //       // handle the response
-  //     },
-  //     { scope: "public_profile,email" }
-  //   );
-  // };
+  handleClose = () => {
+    this.props.history.push("/");
+  };
+  faceBookLogin = () => {
+    window.FB.login(
+      function(response) {
+        // handle the response
+      },
+      { scope: "public_profile,email" }
+    );
+  };
 
   loginWithKakao = () => {
     window.Kakao.Auth.login({
@@ -60,7 +63,7 @@ export class SignUp extends Component {
     return (
       <div className="sign-up-page">
         <div className="sign-up-container">
-          <button className="close-button"></button>
+          <button className="close-button" onClick={this.handleClose}></button>
           <div className="kakao-login" onClick={this.loginWithKakao}></div>
           <div className="facebook-login" onClick={this.faceBookLogin}></div>
           <div className="or-container">

@@ -53,13 +53,39 @@ export class Login extends Component {
       console.log(this.state.passwordView)
     );
   };
+  loginWithKakao = () => {
+    window.Kakao.Auth.login({
+      success: function(authObj) {
+        fetch("http://10.58.0.155:8002/account/kakao_signin", {
+          method: "get",
+          headers: {
+            Authorization: authObj.access_token
+          }
+        })
+          .then(res => {
+            return res.json();
+          })
+          .then(res => {
+            if (res.access_token) {
+              localStorage.setItem("access_token", res.access_token);
+            } else {
+              alert("실패");
+            }
+          });
+      },
+      fail: function(err) {
+        alert(JSON.stringify(err));
+      }
+    });
+    this.props.history.push("/");
+  };
   render() {
     const { emailValue, passwordView } = this.state;
     return (
       <div className="login-page">
         <div className="login-page-container">
           <button className="close-button"></button>
-          <div className="kakao-login"></div>
+          <div className="kakao-login" onClick={this.loginWithKakao}></div>
           <div className="facebook-login"></div>
           <div className="or-container">
             <div className="under-border"></div>

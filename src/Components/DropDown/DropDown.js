@@ -31,9 +31,10 @@ export class DropDown extends Component {
     });
     return (
       <>
-        <div className="dropdown-container">
-          <div className="dropdown-name">{name} :</div>
+        <div style={this.props.margin} className="dropdown-container">
+          <div className="dropdown-name">{name} </div>
           <select
+            style={this.props.style}
             onChange={this.handleData}
             name="dropdown"
             className="dropdown-field"
@@ -41,7 +42,9 @@ export class DropDown extends Component {
             {option}
           </select>
         </div>
-        <div className="tag-container">{this.state.tag && tag}</div>
+        <div style={this.props.none} className="tag-container">
+          {this.state.tag && tag}
+        </div>
       </>
     );
   }
