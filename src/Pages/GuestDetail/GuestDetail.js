@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Simple from "Components/Simple/Simple";
 import { GuestDetailAPI } from "config.js";
+import DetailHeader from "Components/Header/DetailHeader.js";
+
 import "./GuestDetail.scss";
 import Left from "./Left";
 
@@ -39,24 +41,26 @@ export class GuestDetail extends Component {
 
   render() {
     return (
-      <div className="guest-detail-wrapper">
-        <img className="test" src={require("./aa.PNG")} alt="" />
-        <div className="large-text">
-          <span className="text">숙소 </span>
-          <br />
-          <span className="text">예약을</span>
-          <br />
-          <span className="text">확인하세요</span>
-        </div>
-        <div className="detail-left">
-          <Left />
-        </div>
-        <div className="detail-right">
-          {this.state.data.reservation_data &&
-            this.state.data.reservation_data.map((e, index) => (
-              <Simple>{e}</Simple>
-            ))}
-          {/* <Simple
+      <>
+        <DetailHeader />
+        <div className="guest-detail-wrapper">
+          <img className="test" src={require("./aa.PNG")} alt="" />
+          <div className="large-text">
+            <span className="text">숙소 </span>
+            <br />
+            <span className="text">예약을</span>
+            <br />
+            <span className="text">확인하세요</span>
+          </div>
+          <div className="detail-left">
+            <Left />
+          </div>
+          <div className="detail-right">
+            {this.state.data.reservation_data &&
+              this.state.data.reservation_data.map((e, index) => (
+                <Simple>{e}</Simple>
+              ))}
+            {/* <Simple
             S_year={S_year}
             S_month={S_month}
             S_day={S_day}
@@ -66,8 +70,9 @@ export class GuestDetail extends Component {
             price={price}
             picture={picture}
           /> */}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

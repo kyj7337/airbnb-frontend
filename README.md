@@ -1,68 +1,23 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Wecode 2nd Project
 
-## Available Scripts
+숙소 예약 사이트인 Air B & B (https://www.airbnb.co.kr/)를 Clone coding 한 프로젝트인, We & B 입니다.
 
-In the project directory, you can run:
+- **Front-End**
 
-### `yarn start`
+1. 조인호 : 소셜로그인(Kakao, Facebook /SignUp), 일반 회원가입(/SignUpDetail), 로그인 페이지(/Login), 호스트 등록페이지(/HostRegiste), 호스트 관리 페이지(/HostAdmin)
+   `카카오 소셜로그인`,`JWT`,`다음지도API`,`사진업로드`,`MediaQuery`,`axios`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. 김영준 : 숙소 상세 페이지(RoomsDetailPage?id=숫자), 예약확인 페이지(/GuestDetail)
+   `구글맵API`,`결제API`,`Popup`,`MediaQuery`,`Responsive Web`,`JWT`,`moment Library`,`react-dates Library`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+3. 윤지수 : 메인 페이지(/), 숙소 리스트 페이지(/list?id=숫자)
+   `page nation`,`구글맵API`,`react-dates Library`,`MediaQuery`
 
-### `yarn test`
+- **Back-end**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. 박경연 : 숙소 데이터 크롤링,
+   `Python`
+2. 유병민 : 회원가입, 로그인,
+   `Python`
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+> 사진, 영상은 추후 업데이트 할 예정입니다.
