@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 import { withRouter } from "react-router-dom";
-import { RoomDetailAPI } from "config.js";
+import { RoomDetailAPI, RoomDetailAPIMockup } from "config.js";
 import Google from "./Google.js";
 import "./Map.scss";
 // import RoomDetailMockUp from "Pages/RoomsDetailPage/RoomDetailMain/RoomDetailMockup";
@@ -15,8 +15,9 @@ export class Map extends Component {
     zoom: 12
   };
 
+  //RoomDetailAPI + this.props.location.search.split("=")[1]
   componentDidMount() {
-    fetch(RoomDetailAPI + this.props.location.search.split("=")[1], {
+    fetch(RoomDetailAPIMockup, {
       method: "get"
     })
       .then(res => res.json())

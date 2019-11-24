@@ -3,7 +3,7 @@ import "./RoomsDetailPage.scss";
 import { withRouter } from "react-router-dom";
 import Picture from "./Picture/Picture";
 import RoomDetailMain from "./RoomDetailMain";
-import { RoomDetailAPI } from "config.js";
+import { RoomDetailAPI, RoomDetailAPIMockup } from "config.js";
 import DetailHeader from "Components/Header/DetailHeader.js";
 
 export class RoomsDetailPage extends Component {
@@ -25,9 +25,10 @@ export class RoomsDetailPage extends Component {
   handleScroll = () => {
     this.setState({ hd: window.scrollY < 450 });
   };
+  //빽 데이터 연결 되면 fetch 함수 내에 RoomDetailAPI + this.props.location.search.split("=")[1] 이렇게 바꾼다.
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
-    fetch(RoomDetailAPI + this.props.location.search.split("=")[1], {
+    fetch(RoomDetailAPIMockup, {
       method: "get"
     })
       .then(res => res.json())

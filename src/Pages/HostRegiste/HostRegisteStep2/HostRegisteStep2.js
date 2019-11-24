@@ -7,6 +7,7 @@ import TextArea from "../../../Components/TextArea";
 import DropDown from "../../../Components/DropDown";
 import Maps from "../../../Components/Maps/Maps";
 import "./HostRegisteStep2.scss";
+import DetailHeader from "Components/Header/DetailHeader";
 
 let upload = [];
 export class HostRegisteStep2 extends Component {
@@ -233,113 +234,116 @@ export class HostRegisteStep2 extends Component {
     });
 
     return (
-      <div className="host-registe-page">
-        <div className="hr-step-container">
-          <div className="hr-step-2"></div>
-        </div>
-        <div className="hr-step">step: 2</div>
-        <div className="hr-guide-text-container">
-          <div className="hr-guide-text">
-            <h1>{hostName}님, 숙소 등록을 계속 진행해 볼까요? </h1>
+      <>
+        <DetailHeader />
+        <div className="host-registe-page">
+          <div className="hr-step-container">
+            <div className="hr-step-2"></div>
           </div>
-          <div className="hr-guide-image2"></div>
-        </div>
+          <div className="hr-step">step: 2</div>
+          <div className="hr-guide-text-container">
+            <div className="hr-guide-text">
+              <h1>{hostName}님, 숙소 등록을 계속 진행해 볼까요? </h1>
+            </div>
+            <div className="hr-guide-image2"></div>
+          </div>
 
-        <div className="hr-registe-container">
-          <div className="rooms-name-container">
-            <div className="rooms-name">숙소 이름 :</div>
-            <input
-              name="roomName"
-              onChange={this.handleText}
-              className="rooms-name-field"
-              placeholder="숙소의 이름을 지어주세요"
-            ></input>
-          </div>
-          <div className="dropdown-container">
-            <DropDown
-              drop={this.handleDrop}
-              name="숙소유형"
-              type={"room_type"}
-              data={roomType}
+          <div className="hr-registe-container">
+            <div className="rooms-name-container">
+              <div className="rooms-name">숙소 이름 :</div>
+              <input
+                name="roomName"
+                onChange={this.handleText}
+                className="rooms-name-field"
+                placeholder="숙소의 이름을 지어주세요"
+              ></input>
+            </div>
+            <div className="dropdown-container">
+              <DropDown
+                drop={this.handleDrop}
+                name="숙소유형"
+                type={"room_type"}
+                data={roomType}
+              />
+              <DropDown
+                drop={this.handleDrop}
+                name="침대유형"
+                type={"bed_type"}
+                data={bedType}
+              />
+              <DropDown
+                drop={this.handleDrop}
+                name="이용규칙"
+                type={"rule"}
+                data={rules}
+              />
+              <DropDown
+                drop={this.handleDrop}
+                name="정책유형"
+                type={"policy"}
+                data={policy}
+              />
+              <DropDown
+                drop={this.handleDrop}
+                name="편의시설"
+                type={"amenity"}
+                data={amenities}
+              />
+            </div>
+            <div className="button-container">
+              <PlusMinus pm={this.handlePM} nameProps="최대인원" />
+              <PlusMinus pm={this.handlePM} nameProps="침대" />
+              <PlusMinus pm={this.handlePM} nameProps="욕실" />
+            </div>
+            <div className="rooms-picture">숙소 사진등록 :</div>
+            <form method="post" encType="multipart/form-data">
+              <input
+                onChange={this.onChange}
+                type="file"
+                className="hr-registe-profile-input"
+                multiple
+              />
+              <div className="images-container">{photo}</div>
+            </form>
+            <Maps handleLoc={this.handleLoc} />
+            <TextArea
+              handleText={this.handleProps}
+              name="지역정보"
+              holder="숙소가 있는 지역의 소개를 해주세요"
             />
-            <DropDown
-              drop={this.handleDrop}
-              name="침대유형"
-              type={"bed_type"}
-              data={bedType}
+            <TextArea
+              handleText={this.handleProps}
+              name="숙소 상세설명"
+              value="roomsDetail"
+              holder="숙소에 대한 상세설명을 해주세요"
             />
-            <DropDown
-              drop={this.handleDrop}
-              name="이용규칙"
-              type={"rule"}
-              data={rules}
+            <TextArea
+              handleText={this.handleProps}
+              name="청소비"
+              value="clean"
+              holder="1일 청소비용 금액만 입력해주세요 ex)12000"
             />
-            <DropDown
-              drop={this.handleDrop}
-              name="정책유형"
-              type={"policy"}
-              data={policy}
+            <TextArea
+              handleText={this.handleProps}
+              name="숙박요금"
+              value="pay"
+              holder="1일 숙박요금 금액만 입력해 주세요 ex) 55900"
             />
-            <DropDown
-              drop={this.handleDrop}
-              name="편의시설"
-              type={"amenity"}
-              data={amenities}
-            />
-          </div>
-          <div className="button-container">
-            <PlusMinus pm={this.handlePM} nameProps="최대인원" />
-            <PlusMinus pm={this.handlePM} nameProps="침대" />
-            <PlusMinus pm={this.handlePM} nameProps="욕실" />
-          </div>
-          <div className="rooms-picture">숙소 사진등록 :</div>
-          <form method="post" encType="multipart/form-data">
-            <input
-              onChange={this.onChange}
-              type="file"
-              className="hr-registe-profile-input"
-              multiple
-            />
-            <div className="images-container">{photo}</div>
-          </form>
-          <Maps handleLoc={this.handleLoc} />
-          <TextArea
-            handleText={this.handleProps}
-            name="지역정보"
-            holder="숙소가 있는 지역의 소개를 해주세요"
-          />
-          <TextArea
-            handleText={this.handleProps}
-            name="숙소 상세설명"
-            value="roomsDetail"
-            holder="숙소에 대한 상세설명을 해주세요"
-          />
-          <TextArea
-            handleText={this.handleProps}
-            name="청소비"
-            value="clean"
-            holder="1일 청소비용 금액만 입력해주세요 ex)12000"
-          />
-          <TextArea
-            handleText={this.handleProps}
-            name="숙박요금"
-            value="pay"
-            holder="1일 숙박요금 금액만 입력해 주세요 ex) 55900"
-          />
-          <div className="hr-button-container">
-            <Link to={"/hostRegiste"} className="hr-cancle-button">
-              이전
-            </Link>
-            <button
-              onClick={this.fileUpload}
-              type="submit"
-              className="hr-next-button"
-            >
-              다음&nbsp;&nbsp;>
-            </button>
+            <div className="hr-button-container">
+              <Link to={"/hostRegiste"} className="hr-cancle-button">
+                이전
+              </Link>
+              <button
+                onClick={this.fileUpload}
+                type="submit"
+                className="hr-next-button"
+              >
+                다음&nbsp;&nbsp;>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

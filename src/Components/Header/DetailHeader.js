@@ -18,6 +18,9 @@ export class DetailHeader extends Component {
   alert = () => {
     alert("로그아웃되었습니다.");
   };
+  Click = () => {
+    isuserlogin() && this.props.history.push("/HostRegiste");
+  };
   render() {
     return (
       <div className="header">
@@ -42,10 +45,11 @@ export class DetailHeader extends Component {
                 this.state.loginCheck ? "navbar__beforeSignIn" : "displayNone"
               }
             >
-              <div className="navbar__beforeSignIn__joinHost">
-                <a href="/HostRegiste">
-                  <span>호스트가 되어보세요</span>
-                </a>
+              <div
+                onClick={this.Click}
+                className="navbar__beforeSignIn__joinHost"
+              >
+                <span>호스트가 되어보세요</span>
               </div>
 
               <div className="navbar__beforeSignIn__signup">

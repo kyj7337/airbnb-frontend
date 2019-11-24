@@ -1,0 +1,32 @@
+{
+  "room_information": {
+    "bathroom": 1,
+    "bed": 1,
+    "hostintro": "We are a friendly team that work together to give you the best experience possible. We are happy to help you get settled or to give you tips on good places to see while you are staying.",
+    "hostname": "Anna",
+    "hostpic": "https://a0.muscache.com/im/users/294274/profile_pic/1333617457/original.jpg?aki_policy=profile_x_medium",
+    "language_list": ["English", "Standard Arabic", "Hindi", "Japanese"],
+    "maxpeople": 4,
+    "name": "I SETTE CONI - TRULLO EDERA",
+    "refund_desc": "체크인 30일 전까지 예약을 취소하면 모든 수수료를 포함한 요금 전액이 환불됩니다.",
+    "refund_policy": "엄격 정책",
+    "roomstory": "Spend a unforgettable holiday in the enchanting surroundings of the town of Cisternino (reachable from the near airports of Bari and Brindisi).\nTrullo Edera offers a heaven of peace and tranquillity, set in an elevated position with a stunning view.\nIt's the perfect place if you like nature. You can stay under an olive tree reading a good book, you can have a walk in the small country streets or go to the nearest beaches.\nYou can even easily visit any of the sights in Apulia such as the caves of Castellana, the trulli of Alberobello, the baroque cities of Lecce and Martina Franca, the excavations of Egnazia, the zoosafari of Fasano, Castel del Monte with Frederick's castle, Grottaglie famous for its ceramics, Taranto, Brindisi and Lecce museums.\n\nPrices vary on period and are to be considered included: in-outcoming cleanings, towels, sheets, water, gas, electricity.",
+    "roomtype": "개인실",
+    "roomtypedesc": "주거 공간의 개인실을 사용하시게 됩니다.",
+    "utility_count": 4,
+    "utility_list": ["다리미", "옷장/서랍장", "난방", "게스트 전용 출입문"],
+    "warning_list": [
+      "어린이(2~12세) 숙박에 적합함",
+      "유아(2세 미만) 숙박에 적합함",
+      "반려동물 동반에 적합함"
+    ],
+    "pic1": "https://a0.muscache.com/im/pictures/4913397/d2084422_original.jpg?aki_policy=large",
+    "pic2": "https://a0.muscache.com/im/pictures/4913379/76fb1c24_original.jpg?aki_policy=large",
+    "pic3": "https://a0.muscache.com/im/pictures/4913424/29848297_original.jpg?aki_policy=large",
+    "pic4": "https://a0.muscache.com/im/pictures/4913452/a6bcad0c_original.jpg?aki_policy=large",
+    "pic5": "https://a0.muscache.com/im/pictures/4913466/fc4a60cd_original.jpg?aki_policy=large",
+    "center": { "lat": "41.207527", "lng": "-8.307780" },
+    "cleaning_fee": "30000",
+    "price": "30000"
+  }
+}

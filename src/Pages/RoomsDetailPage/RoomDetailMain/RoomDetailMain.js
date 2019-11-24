@@ -12,7 +12,7 @@ import Warning from "Pages/RoomsDetailPage/Warning";
 import Cancel from "Pages/RoomsDetailPage/Cancel";
 import Footer from "Components/Footer";
 import Payment from "Components/Payment";
-import { RoomDetailAPI } from "config.js";
+import { RoomDetailAPI, RoomDetailAPIMockup } from "config.js";
 import moment from "moment";
 import "react-dates/initialize";
 import "./Calendercss.scss";
@@ -33,9 +33,10 @@ export class RoomDetailMain extends Component {
   handleScroll = () => {
     this.setState({ calender: window.scrollY < 450 });
   };
+  //빽 데이터 연결 되면 fetch 함수 내에 RoomDetailAPI + this.props.location.search.split("=")[1] 이렇게 바꾼다.
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
-    fetch(RoomDetailAPI + this.props.location.search.split("=")[1], {
+    fetch(RoomDetailAPIMockup, {
       method: "get"
     })
       .then(res => res.json())

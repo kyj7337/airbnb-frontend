@@ -18,6 +18,9 @@ export class Header extends Component {
     localStorage.removeItem("access_token");
     this.setState({ loginCheck: true });
   };
+  Click = () => {
+    isuserlogin() && this.props.history.push("/HostRegiste");
+  };
 
   render() {
     return (
@@ -52,10 +55,11 @@ export class Header extends Component {
               this.state.loginCheck ? "displayNone" : "navbar__afterSignIn"
             }
           >
-            <div className="navbar__beforeSignIn__joinHost">
-              <a href="/HostRegiste">
-                <span>호스트가 되어보세요</span>
-              </a>
+            <div
+              onClick={this.Click}
+              className="navbar__beforeSignIn__joinHost"
+            >
+              <span>호스트가 되어보세요</span>
             </div>
 
             <div onClick={this.out} className="logout">

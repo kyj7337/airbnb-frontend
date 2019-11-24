@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import axios, { post } from "axios";
 import "./HostRegiste.scss";
 import DropDown from "../../Components/DropDown";
+import DetailHeader from "Components/Header/DetailHeader";
 // const getBase64 = file => {
 //   return new Promise((resolve, reject) => {
 //     const reader = new FileReader();
@@ -272,122 +273,129 @@ export class HostRegiste extends Component {
     });
 
     return (
-      <div className="host-registe-page">
-        <div className="hr-step-container">
-          <div className="hr-step-1"></div>
-        </div>
-        <div className="hr-step">step: 1</div>
-        <div className="hr-guide-text-container">
-          <div className="hr-guide-text">
-            <h1>
-              호스트가 되어보세요!! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 전 세계
-              각국의 게스트를 만나보세요.
-            </h1>
+      <>
+        <DetailHeader />
+        <div className="host-registe-page">
+          <div className="hr-step-container">
+            <div className="hr-step-1"></div>
           </div>
-          <div className="hr-guide-image"></div>
-        </div>
+          <div className="hr-step">step: 1</div>
+          <div className="hr-guide-text-container">
+            <div className="hr-guide-text">
+              <h1>
+                호스트가 되어보세요!! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 전 세계
+                각국의 게스트를 만나보세요.
+              </h1>
+            </div>
+            <div className="hr-guide-image"></div>
+          </div>
 
-        <div className="hr-registe-container">
-          호스트 이미지 등록:
-          <form onSubmit={this.onFormSubmit}>
-            <div className="hr-registe-profile-container">
-              <div
-                className="hr-registe-profile-image"
-                style={{
-                  backgroundImage: `url(${this.state.image.result})`
-                }}
-              ></div>
-              {/* <input
+          <div className="hr-registe-container">
+            호스트 이미지 등록:
+            <form onSubmit={this.onFormSubmit}>
+              <div className="hr-registe-profile-container">
+                <div
+                  className="hr-registe-profile-image"
+                  style={{
+                    backgroundImage: `url(${this.state.image.result})`
+                  }}
+                ></div>
+                {/* <input
                 type="file"
                 id="imageFile"
                 name="imageFile"
                 onChange={this.imageUpload}
               /> */}
-              <input
-                onChange={this.onChange}
-                type="file"
-                className="hr-registe-profile-input"
-              ></input>
-            </div>
-            <div className="hr-host-nick-container">
-              <div className="host-nick-name">호스트 이름 :</div>
-              <input
-                onChange={this.handleText}
-                name="hostName"
-                type="text"
-                className="host-nick-name-field"
-                placeholder="닉네임으로 사용할 이름을 입력하세요."
-              ></input>
-            </div>
-            <div className="host-intro-container">
-              <div className="host-intro">호스트 소개 :</div>
-              <textarea
-                onChange={this.handleText}
-                name="hostIntro"
-                type="text"
-                className="host-intro-field"
-                placeholder="게스트에 전할 글을 작성해 주세요."
-              ></textarea>
-            </div>
-            <div className="host-relation-container">
-              <div className="host-relation">게스트와의 교류 :</div>
-              <textarea
-                onChange={this.handleText}
-                name="relation"
-                className="host-relation-field"
-                placeholder="게스트와 어떤 종류의 교류를 원하시나요?"
-              ></textarea>
-            </div>
+                <input
+                  onChange={this.onChange}
+                  type="file"
+                  className="hr-registe-profile-input"
+                ></input>
+              </div>
+              <div className="hr-host-nick-container">
+                <div className="host-nick-name">호스트 이름 :</div>
+                <input
+                  onChange={this.handleText}
+                  name="hostName"
+                  type="text"
+                  className="host-nick-name-field"
+                  placeholder="닉네임으로 사용할 이름을 입력하세요."
+                ></input>
+              </div>
+              <div className="host-intro-container">
+                <div className="host-intro">호스트 소개 :</div>
+                <textarea
+                  onChange={this.handleText}
+                  name="hostIntro"
+                  type="text"
+                  className="host-intro-field"
+                  placeholder="게스트에 전할 글을 작성해 주세요."
+                ></textarea>
+              </div>
+              <div className="host-relation-container">
+                <div className="host-relation">게스트와의 교류 :</div>
+                <textarea
+                  onChange={this.handleText}
+                  name="relation"
+                  className="host-relation-field"
+                  placeholder="게스트와 어떤 종류의 교류를 원하시나요?"
+                ></textarea>
+              </div>
 
-            <DropDown
-              name="사용가능언어"
-              data={this.state.language}
-              drop={this.handleDrop}
-              type={"language"}
-            />
+              <DropDown
+                name="사용가능언어"
+                data={this.state.language}
+                drop={this.handleDrop}
+                type={"language"}
+              />
 
-            <div className="language-tag-container">
-              {this.state.language && languageTag}
-            </div>
-            <div className="address-container">
-              <div className="host-address">위치 :</div>
-              <div className="inner-address-container">
-                <input type="text" id="address-search-box" placeholder="주소" />
-                <button
-                  id="address-search-button"
-                  onClick={this.searchAddress}
+              <div className="language-tag-container">
+                {this.state.language && languageTag}
+              </div>
+              <div className="address-container">
+                <div className="host-address">위치 :</div>
+                <div className="inner-address-container">
+                  <input
+                    type="text"
+                    id="address-search-box"
+                    placeholder="주소"
+                  />
+                  <button
+                    id="address-search-button"
+                    onClick={this.searchAddress}
+                    type="submit"
+                  >
+                    주소검색
+                  </button>
+                </div>
+                <div className="address-detail-container">
+                  <div className="address-eng"></div>
+                </div>
+                <div
+                  id="map"
+                  style={{
+                    width: "500px",
+                    height: "500px",
+                    marginTop: "10px",
+                    marginLeft: "10px",
+                    display: "none"
+                  }}
+                ></div>
+              </div>
+              <div className="hr-button-container">
+                <button className="hr-cancle-button">취소</button>
+                <Link
+                  onClick={this.onFormSubmit}
                   type="submit"
+                  className="hr-next-button"
                 >
-                  주소검색
-                </button>
+                  다음&nbsp;&nbsp;>
+                </Link>
               </div>
-              <div className="address-detail-container">
-                <div className="address-eng"></div>
-              </div>
-              <div
-                id="map"
-                style={{
-                  width: "500px",
-                  height: "500px",
-                  marginTop: "10px",
-                  marginLeft: "10px",
-                  display: "none"
-                }}
-              ></div>
-            </div>
-            <div className="hr-button-container">
-              <button className="hr-cancle-button">취소</button>
-              <Link
-                onClick={this.onFormSubmit}
-                type="submit"
-                className="hr-next-button"
-              >
-                다음&nbsp;&nbsp;>
-              </Link>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }
