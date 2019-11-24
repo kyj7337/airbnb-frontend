@@ -47,11 +47,13 @@ export class DetailHeader extends Component {
                   <span>호스트가 되어보세요</span>
                 </a>
               </div>
+
               <div className="navbar__beforeSignIn__signup">
                 <a href="/SignUp">
                   <span>회원가입</span>
                 </a>
               </div>
+
               <div className="navbar__beforeSignIn__signin">
                 <a href="/Login">
                   <span>로그인</span>

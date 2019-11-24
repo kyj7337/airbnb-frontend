@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Header.scss";
 import { isuserlogin } from "config.js";
+import { Link } from "react-router-dom";
 
 // /import emptyImg from "Images/profileImg.png"
 import { withRouter } from "react-router-dom";
@@ -17,6 +18,7 @@ export class Header extends Component {
     localStorage.removeItem("access_token");
     this.setState({ loginCheck: true });
   };
+
   render() {
     return (
       <div className="header-container">
@@ -55,6 +57,7 @@ export class Header extends Component {
                 <span>호스트가 되어보세요</span>
               </a>
             </div>
+
             <div onClick={this.out} className="logout">
               <span>로그아웃</span>
             </div>
