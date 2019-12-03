@@ -1,6 +1,6 @@
 ## Wecode 2nd Project
 
-숙소 예약 사이트인 Air B & B (https://www.airbnb.co.kr/)를 Clone coding 한 프로젝트인, We & B 입니다.
+숙소 예약 사이트인 Air B & B (https://www.airbnb.co.kr/)를 **React**를 이용하여 Clone coding 한 프로젝트인, We & B 입니다.
 
 - **Front-End**
 
