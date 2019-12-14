@@ -18,7 +18,7 @@
 
 - **Front-End**
 
-2. **김영준** : 숙소 상세 페이지(RoomsDetailPage?id=숫자), 예약확인 페이지(/GuestDetail)
+ **김영준** : 숙소 상세 페이지(RoomsDetailPage?id=숫자), 예약확인 페이지(/GuestDetail)
 
 > 활용기술(JS) : `구글맵API`,`결제API`,`Popup`,`MediaQuery`,`Responsive Web`,`JWT`,`moment Library`,`react-dates Library`
 > 활용기술(CSS) : `mediaquery` , `SCSS`
